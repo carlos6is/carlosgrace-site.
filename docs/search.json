@@ -1,0 +1,226 @@
+[
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact",
+    "section": "",
+    "text": "The quickest way to reach me is by email or LinkedIn.\n\nEmail: carlosgrace44@gmail.com\nLinkedIn: linkedin.com/in/YOUR-LINKEDIN-HANDLE\nGitHub: github.com/YOUR-GITHUB-USERNAME"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I’m a geography graduate from the University of Galway specialising in GIS and spatial analysis. My dissertation measured 35 years of urban sprawl in Galway using CORINE land cover data, and I’ve built public-facing StoryMaps for Galway County Council.\nI’m looking for graduate GIS roles in Ireland, the UK and Europe.\nDownload my CV (PDF)"
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About",
+    "section": "Education",
+    "text": "Education\nBSc Social Science & Sustainability (Geography), University of Galway\nFirst Class Honours. Dissertation on Galway urban sprawl and path dependency, 1990–2025 (78%)."
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "About",
+    "section": "Experience",
+    "text": "Experience\nGIS Intern, Galway County Council\nBuilt ArcGIS StoryMaps for local heritage groups and presented them to council members, including the Cathaoirleach.\nLifeguard, Nantucket, Massachusetts (summer 2026)"
+  },
+  {
+    "objectID": "about.html#skills",
+    "href": "about.html#skills",
+    "title": "About",
+    "section": "Skills",
+    "text": "Skills\n\nGIS: QGIS, ArcGIS Online, ArcGIS StoryMaps\nAnalysis: R (spatial statistics, species distribution modelling, kriging, LISA), Python\nMethods: network and proximity analysis, land cover change, spatial autocorrelation, conservation planning\nCurrently learning: ArcGIS Pro, Python for GIS, FME"
+  },
+  {
+    "objectID": "projects/council-storymaps/index.html",
+    "href": "projects/council-storymaps/index.html",
+    "title": "Heritage StoryMaps, Galway County Council",
+    "section": "",
+    "text": "RoleGIS Intern, Galway County Council\n  ToolsArcGIS Online, ArcGIS StoryMaps\n  AudienceLocal heritage groups and the public"
+  },
+  {
+    "objectID": "projects/council-storymaps/index.html#problem",
+    "href": "projects/council-storymaps/index.html#problem",
+    "title": "Heritage StoryMaps, Galway County Council",
+    "section": "Problem",
+    "text": "Problem\nHeritage groups hold detailed local knowledge but rarely have a way to share it as an interactive map. The brief was to turn their material into StoryMaps the public could explore."
+  },
+  {
+    "objectID": "projects/council-storymaps/index.html#method",
+    "href": "projects/council-storymaps/index.html#method",
+    "title": "Heritage StoryMaps, Galway County Council",
+    "section": "Method",
+    "text": "Method\n\nGathered sites, photos and text from each heritage group\nBuilt the web maps and point layers in ArcGIS Online\nDesigned the StoryMaps for a non-technical public audience\nPresented the finished work to council members, including the Cathaoirleach"
+  },
+  {
+    "objectID": "projects/council-storymaps/index.html#result",
+    "href": "projects/council-storymaps/index.html#result",
+    "title": "Heritage StoryMaps, Galway County Council",
+    "section": "Result",
+    "text": "Result\n\n\n\nA heritage StoryMap built for Galway County Council.\n\n\n\nAdd: a screenshot of the best StoryMap, and links to the live StoryMaps if they’re public."
+  },
+  {
+    "objectID": "projects/council-storymaps/index.html#what-this-shows",
+    "href": "projects/council-storymaps/index.html#what-this-shows",
+    "title": "Heritage StoryMaps, Galway County Council",
+    "section": "What this shows",
+    "text": "What this shows\nTaking local knowledge from non-specialists, turning it into clear public maps, and presenting the result to elected representatives."
+  },
+  {
+    "objectID": "projects/rainfall-kriging/index.html",
+    "href": "projects/rainfall-kriging/index.html",
+    "title": "Rainfall interpolation by kriging",
+    "section": "",
+    "text": "QuestionHow can scattered rain gauge readings be turned into a reliable rainfall map, and where is that map least certain?\n  ToolsR\n  DataEDIT: rainfall station dataset and study area\n  ContextGIS module assignment, University of Galway"
+  },
+  {
+    "objectID": "projects/rainfall-kriging/index.html#problem",
+    "href": "projects/rainfall-kriging/index.html#problem",
+    "title": "Rainfall interpolation by kriging",
+    "section": "Problem",
+    "text": "Problem\nRainfall is measured at a limited number of stations, but planning and environmental work need values everywhere. Kriging predicts values between stations and, unlike simpler methods, also gives an error estimate for each location."
+  },
+  {
+    "objectID": "projects/rainfall-kriging/index.html#data",
+    "href": "projects/rainfall-kriging/index.html#data",
+    "title": "Rainfall interpolation by kriging",
+    "section": "Data",
+    "text": "Data\n\nAdd: the station dataset, number of stations, time period and study area."
+  },
+  {
+    "objectID": "projects/rainfall-kriging/index.html#method",
+    "href": "projects/rainfall-kriging/index.html#method",
+    "title": "Rainfall interpolation by kriging",
+    "section": "Method",
+    "text": "Method\n\nExplored the station data and checked for trend and outliers\nFitted an empirical variogram and a variogram model to describe how rainfall similarity changes with distance\nRan ordinary kriging over a prediction grid\nMapped both the predicted rainfall surface and the kriging variance\nChecked accuracy with cross-validation"
+  },
+  {
+    "objectID": "projects/rainfall-kriging/index.html#result",
+    "href": "projects/rainfall-kriging/index.html#result",
+    "title": "Rainfall interpolation by kriging",
+    "section": "Result",
+    "text": "Result\n\n\n\nPredicted rainfall surface (left) and kriging variance (right).\n\n\n\nAdd: the prediction and variance maps, the fitted variogram plot, and the cross-validation error (e.g. RMSE). If your LISA analysis has the stronger visual, swap this project for that one."
+  },
+  {
+    "objectID": "projects/rainfall-kriging/index.html#code",
+    "href": "projects/rainfall-kriging/index.html#code",
+    "title": "Rainfall interpolation by kriging",
+    "section": "Code",
+    "text": "Code\n\nAdd: link to the GitHub repo with the R script."
+  },
+  {
+    "objectID": "projects/galway-urban-sprawl/index.html",
+    "href": "projects/galway-urban-sprawl/index.html",
+    "title": "Galway urban sprawl, 1990–2025",
+    "section": "",
+    "text": "QuestionHow far and in which direction has Galway's built-up area spread since 1990, and how did planning policy shape it?\n  ToolsQGIS, R\n  DataCORINE Land Cover (1990–2018 series and latest release), Galway City Development Plans\n  CRSIrish Transverse Mercator (EPSG:2157)\n  ContextBSc dissertation, University of Galway. Graded 78%."
+  },
+  {
+    "objectID": "projects/galway-urban-sprawl/index.html#problem",
+    "href": "projects/galway-urban-sprawl/index.html#problem",
+    "title": "Galway urban sprawl, 1990–2025",
+    "section": "Problem",
+    "text": "Problem\nGalway is one of the fastest-growing cities in Ireland. This project measured where that growth went between 1990 and 2025, and whether development followed the city plans or locked in a low-density pattern that later plans struggled to reverse (path dependency)."
+  },
+  {
+    "objectID": "projects/galway-urban-sprawl/index.html#data",
+    "href": "projects/galway-urban-sprawl/index.html#data",
+    "title": "Galway urban sprawl, 1990–2025",
+    "section": "Data",
+    "text": "Data\n\nCORINE Land Cover layers for each available year, reclassified to artificial surfaces vs. other cover\nGalway City Development Plans, coded qualitatively for policy on density and expansion"
+  },
+  {
+    "objectID": "projects/galway-urban-sprawl/index.html#method",
+    "href": "projects/galway-urban-sprawl/index.html#method",
+    "title": "Galway urban sprawl, 1990–2025",
+    "section": "Method",
+    "text": "Method\n\nReprojected all layers to ITM (EPSG:2157) so distances and areas are in metres\nCalculated artificial-surface area per year and the change between periods\nBuilt density gradients: share of built-up land in rings at set distances from the city centre\nTracked the centroid of built-up land each year to measure the direction and distance of shift\nCoded development plan text for themes such as compact growth and suburban expansion, then compared policy timing with the spatial change"
+  },
+  {
+    "objectID": "projects/galway-urban-sprawl/index.html#result",
+    "href": "projects/galway-urban-sprawl/index.html#result",
+    "title": "Galway urban sprawl, 1990–2025",
+    "section": "Result",
+    "text": "Result\n\n\n\nBuilt-up land change around Galway City, 1990–2025.\n\n\n\nAdd: your final change map in place of the placeholder above, plus 2–3 findings with numbers. For example: total growth in artificial surface (hectares or %), how far the centroid moved and in which direction, and which plan period lines up with the biggest change."
+  },
+  {
+    "objectID": "projects/galway-urban-sprawl/index.html#code",
+    "href": "projects/galway-urban-sprawl/index.html#code",
+    "title": "Galway urban sprawl, 1990–2025",
+    "section": "Code",
+    "text": "Code\n\nAdd: link to the GitHub repo with the R scripts, e.g. https://github.com/YOUR-GITHUB-USERNAME/galway-urban-sprawl"
+  },
+  {
+    "objectID": "projects/ev-charger-access/index.html",
+    "href": "projects/ev-charger-access/index.html",
+    "title": "EV charger access, Galway City",
+    "section": "",
+    "text": "QuestionWhich neighbourhoods in Galway City are furthest by road from a public EV charger?\n  ToolsQGIS\n  DataCSO Census Small Areas, public EV charge point locations, OpenStreetMap road network\n  CRSIrish Transverse Mercator (EPSG:2157)"
+  },
+  {
+    "objectID": "projects/ev-charger-access/index.html#problem",
+    "href": "projects/ev-charger-access/index.html#problem",
+    "title": "EV charger access, Galway City",
+    "section": "Problem",
+    "text": "Problem\nIreland’s EV targets depend on public charging, but straight-line distance hides how far people actually have to drive. This project measures road distance from each Census Small Area to its nearest charger to find the gaps."
+  },
+  {
+    "objectID": "projects/ev-charger-access/index.html#data",
+    "href": "projects/ev-charger-access/index.html#data",
+    "title": "EV charger access, Galway City",
+    "section": "Data",
+    "text": "Data\n\nCSO Census Small Area boundaries, with population\nPublic EV charge point locations\nOpenStreetMap road network, clipped to Galway City"
+  },
+  {
+    "objectID": "projects/ev-charger-access/index.html#method",
+    "href": "projects/ev-charger-access/index.html#method",
+    "title": "EV charger access, Galway City",
+    "section": "Method",
+    "text": "Method\n\nConverted Small Area polygons to centroids\nBuilt a routable road network from OSM\nCalculated the shortest road distance from each centroid to its nearest charger\nClassified Small Areas into distance bands and mapped them as a choropleth"
+  },
+  {
+    "objectID": "projects/ev-charger-access/index.html#result",
+    "href": "projects/ev-charger-access/index.html#result",
+    "title": "EV charger access, Galway City",
+    "section": "Result",
+    "text": "Result\n\n\n\nRoad distance to the nearest public EV charger by Census Small Area.\n\n\n\nAdd: your final map, plus 2–3 findings with numbers. For example: the share of Small Areas (or residents) more than 2 km by road from a charger, and which parts of the city are worst served."
+  },
+  {
+    "objectID": "projects/ev-charger-access/index.html#code",
+    "href": "projects/ev-charger-access/index.html#code",
+    "title": "EV charger access, Galway City",
+    "section": "Code",
+    "text": "Code\n\nAdd: link to the GitHub repo or QGIS model, e.g. https://github.com/YOUR-GITHUB-USERNAME/galway-ev-access"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Galway urban sprawl, 1990–2025\n\n\n\nQGIS\n\nR\n\nCORINE\n\nLand cover change\n\n\n\nThirty-five years of land cover change around Galway City, measured with CORINE data, density gradients and centroid shift.\n\n\n\n\n\n\n\n\n\n\n\n\nEV charger access, Galway City\n\n\n\nQGIS\n\nNetwork analysis\n\nCensus\n\nInfrastructure\n\n\n\nRoad distance from every Census Small Area to its nearest public EV charger, showing which neighbourhoods are underserved.\n\n\n\n\n\n\n\n\n\n\n\n\nRainfall interpolation by kriging\n\n\n\nR\n\nGeostatistics\n\nKriging\n\n\n\nA continuous rainfall surface built from point station data with ordinary kriging in R, with the variogram and prediction error mapped.\n\n\n\n\n\n\n\n\n\n\n\n\nHeritage StoryMaps, Galway County Council\n\n\n\nArcGIS Online\n\nStoryMaps\n\nStakeholder work\n\n\n\nPublic-facing ArcGIS StoryMaps built for local heritage groups during a council GIS internship, and presented to elected members.\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Carlos Grace",
+    "section": "",
+    "text": "GIS analyst. I map how places change and who can reach what: urban growth, infrastructure access and environmental data across Ireland.\n    Galway, Ireland. 53.27° N, 9.06° W\n    \n      See projects\n      Download CV"
+  },
+  {
+    "objectID": "index.html#selected-work",
+    "href": "index.html#selected-work",
+    "title": "Carlos Grace",
+    "section": "Selected work",
+    "text": "Selected work\n\n\n\n\n\n\n\n\n\n\nGalway urban sprawl, 1990–2025\n\n\nThirty-five years of land cover change around Galway City, measured with CORINE data, density gradients and centroid shift.\n\n\n\n\n\n\n\n\n\n\n\n\nEV charger access, Galway City\n\n\nRoad distance from every Census Small Area to its nearest public EV charger, showing which neighbourhoods are underserved.\n\n\n\n\n\n\n\n\n\n\n\n\nRainfall interpolation by kriging\n\n\nA continuous rainfall surface built from point station data with ordinary kriging in R, with the variogram and prediction error mapped.\n\n\n\n\n\nNo matching items\n\nAll projects"
+  },
+  {
+    "objectID": "index.html#tools",
+    "href": "index.html#tools",
+    "title": "Carlos Grace",
+    "section": "Tools",
+    "text": "Tools\n\nDay to day I work in QGIS, R and ArcGIS Online, from data cleaning through to finished cartography. I’m currently building up ArcGIS Pro, Python and FME, with a new project here each month."
+  }
+]

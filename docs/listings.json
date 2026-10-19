@@ -1,0 +1,19 @@
+[
+  {
+    "listing": "/projects.html",
+    "items": [
+      "/projects/galway-urban-sprawl/index.html",
+      "/projects/ev-charger-access/index.html",
+      "/projects/rainfall-kriging/index.html",
+      "/projects/council-storymaps/index.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/projects/galway-urban-sprawl/index.html",
+      "/projects/ev-charger-access/index.html",
+      "/projects/rainfall-kriging/index.html"
+    ]
+  }
+]

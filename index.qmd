@@ -1,0 +1,46 @@
+---
+title: "Carlos Grace"
+pagetitle: "Carlos Grace | GIS and spatial analysis"
+page-layout: full
+title-block-banner: false
+listing:
+  id: selected-work
+  contents:
+    - projects/galway-urban-sprawl/index.qmd
+    - projects/ev-charger-access/index.qmd
+    - projects/rainfall-kriging/index.qmd
+  sort: false
+  type: grid
+  grid-columns: 3
+  image-height: 220px
+  fields: [image, title, description]
+---
+
+```{=html}
+<style>#title-block-header{display:none}</style>
+<section class="hero">
+  <img class="hero-contours" src="files/contours.svg" alt="">
+  <div class="hero-text">
+    <h1 class="hero-name">Carlos Grace</h1>
+    <p class="hero-lede">GIS analyst. I map how places change and who can reach what: urban growth, infrastructure access and environmental data across Ireland.</p>
+    <p class="hero-place">Galway, Ireland. 53.27° N, 9.06° W</p>
+    <div class="hero-actions">
+      <a class="btn-map primary" href="projects.html">See projects</a>
+      <a class="btn-map" href="files/Carlos-Grace-CV.pdf">Download CV</a>
+    </div>
+  </div>
+</section>
+```
+
+## Selected work
+
+::: {#selected-work}
+:::
+
+[All projects](projects.qmd)
+
+## Tools
+
+::: {.tools-line}
+Day to day I work in QGIS, R and ArcGIS Online, from data cleaning through to finished cartography. I'm currently building up ArcGIS Pro, Python and FME, with a new project here each month.
+:::

@@ -1,0 +1,9 @@
+---
+title: "Contact"
+---
+
+The quickest way to reach me is by email or LinkedIn.
+
+- **Email:** [carlosgrace44@gmail.com](mailto:carlosgrace44@gmail.com)
+- **LinkedIn:** [linkedin.com/in/YOUR-LINKEDIN-HANDLE](https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE)
+- **GitHub:** [github.com/YOUR-GITHUB-USERNAME](https://github.com/YOUR-GITHUB-USERNAME)

@@ -1,0 +1,39 @@
+project:
+  type: website
+  output-dir: docs          # GitHub Pages serves this folder
+  resources:
+    - CNAME                 # keeps carlosgrace.com connected on every render
+    - files/*
+
+website:
+  title: "Carlos Grace"
+  site-url: https://carlosgrace.com
+  description: "GIS and spatial analysis portfolio. Galway, Ireland."
+  favicon: files/favicon.svg
+  open-graph: true
+  navbar:
+    left:
+      - href: projects.qmd
+        text: Projects
+      - href: about.qmd
+        text: About
+      - href: contact.qmd
+        text: Contact
+    right:
+      - icon: linkedin
+        href: https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE   # EDIT
+        aria-label: LinkedIn
+      - icon: github
+        href: https://github.com/YOUR-GITHUB-USERNAME            # EDIT
+        aria-label: GitHub
+  page-footer:
+    left: "© 2026 Carlos Grace"
+    right: "Built with Quarto"
+
+format:
+  html:
+    theme: [cosmo, styles.scss]
+    toc: false
+    code-fold: true
+    link-external-newwindow: true
+    fig-align: left

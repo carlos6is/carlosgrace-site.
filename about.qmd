@@ -1,0 +1,28 @@
+---
+title: "About"
+---
+
+I'm a geography graduate from the University of Galway specialising in GIS and spatial analysis. My dissertation measured 35 years of urban sprawl in Galway using CORINE land cover data, and I've built public-facing StoryMaps for Galway County Council.
+
+I'm looking for graduate GIS roles in Ireland, the UK and Europe.
+
+[Download my CV (PDF)](files/Carlos-Grace-CV.pdf){.btn-map .primary}
+
+## Education
+
+**BSc Social Science & Sustainability (Geography)**, University of Galway\
+First Class Honours. Dissertation on Galway urban sprawl and path dependency, 1990–2025 (78%).
+
+## Experience
+
+**GIS Intern**, Galway County Council\
+Built ArcGIS StoryMaps for local heritage groups and presented them to council members, including the Cathaoirleach.
+
+**Lifeguard**, Nantucket, Massachusetts (summer 2026)
+
+## Skills
+
+- **GIS:** QGIS, ArcGIS Online, ArcGIS StoryMaps
+- **Analysis:** R (spatial statistics, species distribution modelling, kriging, LISA), Python
+- **Methods:** network and proximity analysis, land cover change, spatial autocorrelation, conservation planning
+- **Currently learning:** ArcGIS Pro, Python for GIS, FME
