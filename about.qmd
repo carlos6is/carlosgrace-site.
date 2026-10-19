@@ -18,8 +18,6 @@ First Class Honours. Dissertation on Galway urban sprawl and path dependency, 19
 **GIS Intern**, Galway County Council\
 Built ArcGIS StoryMaps for local heritage groups and presented them to council members, including the Cathaoirleach.
 
-**Lifeguard**, Nantucket, Massachusetts (summer 2026)
-
 ## Skills
 
 - **GIS:** QGIS, ArcGIS Online, ArcGIS StoryMaps
