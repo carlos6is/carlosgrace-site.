@@ -43,5 +43,5 @@ Galway is one of the fastest-growing cities in Ireland. This project measured wh
 ## Code
 
 ::: {.todo}
-**Add:** link to the GitHub repo with the R scripts, e.g. `https://github.com/YOUR-GITHUB-USERNAME/galway-urban-sprawl`
+**Add:** link to the GitHub repo with the R scripts, e.g. `https://github.com/carlos6is/galway-urban-sprawl`
 :::

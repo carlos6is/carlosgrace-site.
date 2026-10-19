@@ -42,5 +42,5 @@ Ireland's EV targets depend on public charging, but straight-line distance hides
 ## Code
 
 ::: {.todo}
-**Add:** link to the GitHub repo or QGIS model, e.g. `https://github.com/YOUR-GITHUB-USERNAME/galway-ev-access`
+**Add:** link to the GitHub repo or QGIS model, e.g. `https://github.com/carlos6is/galway-ev-access`
 :::

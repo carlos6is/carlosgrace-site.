@@ -4,7 +4,7 @@
     "href": "contact.html",
     "title": "Contact",
     "section": "",
-    "text": "The quickest way to reach me is by email or LinkedIn.\n\nEmail: carlosgrace44@gmail.com\nLinkedIn: linkedin.com/in/YOUR-LINKEDIN-HANDLE\nGitHub: github.com/YOUR-GITHUB-USERNAME"
+    "text": "The quickest way to reach me is by email or LinkedIn.\n\nEmail: carlosgrace44@gmail.com\nLinkedIn: linkedin.com/in/carlosgrace\nGitHub: github.com/carlos6is"
   },
   {
     "objectID": "about.html",
@@ -151,7 +151,7 @@
     "href": "projects/galway-urban-sprawl/index.html#code",
     "title": "Galway urban sprawl, 1990–2025",
     "section": "Code",
-    "text": "Code\n\nAdd: link to the GitHub repo with the R scripts, e.g. https://github.com/YOUR-GITHUB-USERNAME/galway-urban-sprawl"
+    "text": "Code\n\nAdd: link to the GitHub repo with the R scripts, e.g. https://github.com/carlos6is/galway-urban-sprawl"
   },
   {
     "objectID": "projects/ev-charger-access/index.html",
@@ -193,7 +193,7 @@
     "href": "projects/ev-charger-access/index.html#code",
     "title": "EV charger access, Galway City",
     "section": "Code",
-    "text": "Code\n\nAdd: link to the GitHub repo or QGIS model, e.g. https://github.com/YOUR-GITHUB-USERNAME/galway-ev-access"
+    "text": "Code\n\nAdd: link to the GitHub repo or QGIS model, e.g. https://github.com/carlos6is/galway-ev-access"
   },
   {
     "objectID": "projects.html",

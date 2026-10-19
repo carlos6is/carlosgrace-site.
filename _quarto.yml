@@ -21,10 +21,10 @@ website:
         text: Contact
     right:
       - icon: linkedin
-        href: https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE   # EDIT
+        href: https://www.linkedin.com/in/carlosgrace   # EDIT
         aria-label: LinkedIn
       - icon: github
-        href: https://github.com/YOUR-GITHUB-USERNAME            # EDIT
+        href: https://github.com/carlos6is            # EDIT
         aria-label: GitHub
   page-footer:
     left: "© 2026 Carlos Grace"
