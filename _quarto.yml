@@ -37,3 +37,4 @@ format:
     code-fold: true
     link-external-newwindow: true
     fig-align: left
+    lightbox: true          # click a map to view it full screen

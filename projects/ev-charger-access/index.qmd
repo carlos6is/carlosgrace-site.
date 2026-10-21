@@ -1,46 +1,50 @@
 ---
 title: "EV charger access, Galway City"
-description: "Road distance from every Census Small Area to its nearest public EV charger, showing which neighbourhoods are underserved."
-image: thumbnail.png
-categories: [QGIS, Network analysis, Census, Infrastructure]
+description: "Road distance from every Census Small Area to its nearest EV charger. 66% of Galway City residents live more than 1 km away by road."
+image: thumbnail.jpg
+categories: [QGIS, Network analysis, Census, Infrastructure, PyQGIS]
 ---
 
 ```{=html}
 <dl class="project-facts">
-  <dt>Question</dt><dd>Which neighbourhoods in Galway City are furthest by road from a public EV charger?</dd>
-  <dt>Tools</dt><dd>QGIS</dd>
-  <dt>Data</dt><dd>CSO Census Small Areas, public EV charge point locations, OpenStreetMap road network</dd>
+  <dt>Question</dt><dd>How far, by road, does each Galway City resident live from an EV charger?</dd>
+  <dt>Tools</dt><dd>QGIS (QuickOSM, QNEAT3), PyQGIS</dd>
+  <dt>Data</dt><dd>28 EV chargers from OpenStreetMap; 309 CSO Census 2022 Small Areas with population; OpenStreetMap road network</dd>
   <dt>CRS</dt><dd>Irish Transverse Mercator (EPSG:2157)</dd>
 </dl>
 ```
 
 ## Problem
 
-Ireland's EV targets depend on public charging, but straight-line distance hides how far people actually have to drive. This project measures road distance from each Census Small Area to its nearest charger to find the gaps.
+Ireland's EV targets depend on people being able to charge, but straight-line distance hides how far people actually have to drive. This project measures road distance from every Census Small Area in Galway City to its nearest charger, then weights the result by population to show how many residents are poorly served.
 
 ## Data
 
-- CSO Census Small Area boundaries, with population
-- Public EV charge point locations
-- OpenStreetMap road network, clipped to Galway City
+- 28 EV charger locations from OpenStreetMap, downloaded with QuickOSM
+- 309 CSO Census 2022 Small Area boundaries, joined to Small Area Population Statistics
+- OpenStreetMap road network for Galway City
 
 ## Method
 
-- Converted Small Area polygons to centroids
-- Built a routable road network from OSM
-- Calculated the shortest road distance from each centroid to its nearest charger
-- Classified Small Areas into distance bands and mapped them as a choropleth
+- Reprojected every layer to Irish Transverse Mercator so all distances are in metres
+- Created a centroid for each Small Area
+- Measured straight-line distance to the nearest charger (Distance to Nearest Hub)
+- Measured road-network distance with a QNEAT3 origin–destination matrix, keeping the shortest route for each Small Area
+- Joined Census population to turn distances into numbers of residents
+- Built the A4 layout with a PyQGIS script, so the headline figures are calculated from the data rather than typed in
 
 ## Result
 
-![Road distance to the nearest public EV charger by Census Small Area.](thumbnail.png){fig-alt="Choropleth of road distance to nearest EV charger in Galway City"}
+![Road distance to the nearest EV charger by Census Small Area, with the 10 furthest and 10 nearest areas outlined. Inset: the same classes using straight-line distance.](ev-access-map.jpg){fig-alt="Choropleth map of Galway City showing road distance from each Census Small Area to its nearest EV charger"}
 
-::: {.todo}
-**Add:** your final map, plus 2–3 findings with numbers. For example: the share of Small Areas (or residents) more than 2 km by road from a charger, and which parts of the city are worst served.
-:::
+- **66% of residents** (about 55,600 people) live more than 1 km by road from a charger.
+- **28%** (23,960 people) live more than 2 km away, and **5%** (4,199 people) more than 3 km.
+- **1.5 km** is the average resident's distance to the nearest charger, weighted by population.
+- **Chargers cluster in the city centre**, so the outer residential edges of the city are the worst served.
+- **Straight-line distance understates real trips**, most of all where the river or the bay forces a detour.
 
-## Code
+## Limitations
 
-::: {.todo}
-**Add:** link to the GitHub repo or QGIS model, e.g. `https://github.com/carlos6is/galway-ev-access`
-:::
+- Distances are measured from Small Area centroids, so parts of large Small Areas are closer to a charger than shown.
+- OpenStreetMap charger data may be incomplete and can include chargers that aren't open to the public.
+- One Small Area has no road connection. It is counted in the population total but not in the distance figures.

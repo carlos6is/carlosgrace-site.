@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Road distance from every Census Small Area to its nearest public EV charger, showing which neighbourhoods are underserved.">
+<meta name="description" content="Road distance from every Census Small Area to its nearest EV charger. 66% of Galway City residents live more than 1 km away by road.">
 
 <title>EV charger access, Galway City – Carlos Grace</title>
 <style>
@@ -43,6 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-4c6cf13d2dc481285daf88e88997e842.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,11 +76,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="EV charger access, Galway City – Carlos Grace">
-<meta property="og:description" content="Road distance from every Census Small Area to its nearest public EV charger, showing which neighbourhoods are underserved.">
-<meta property="og:image" content="https://carlosgrace.com/projects/ev-charger-access/thumbnail.png">
+<meta property="og:description" content="Road distance from every Census Small Area to its nearest EV charger. 66% of Galway City residents live more than 1 km away by road.">
+<meta property="og:image" content="https://carlosgrace.com/projects/ev-charger-access/thumbnail.jpg">
 <meta property="og:site_name" content="Carlos Grace">
-<meta property="og:image:height" content="800">
-<meta property="og:image:width" content="1200">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -146,12 +147,13 @@ ul.task-list li input[type="checkbox"] {
     <div class="quarto-category">Network analysis</div>
     <div class="quarto-category">Census</div>
     <div class="quarto-category">Infrastructure</div>
+    <div class="quarto-category">PyQGIS</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Road distance from every Census Small Area to its nearest public EV charger, showing which neighbourhoods are underserved.
+    Road distance from every Census Small Area to its nearest EV charger. 66% of Galway City residents live more than 1 km away by road.
   </div>
 </div>
 
@@ -169,49 +171,57 @@ ul.task-list li input[type="checkbox"] {
 
 
 <dl class="project-facts">
-  <dt>Question</dt><dd>Which neighbourhoods in Galway City are furthest by road from a public EV charger?</dd>
-  <dt>Tools</dt><dd>QGIS</dd>
-  <dt>Data</dt><dd>CSO Census Small Areas, public EV charge point locations, OpenStreetMap road network</dd>
+  <dt>Question</dt><dd>How far, by road, does each Galway City resident live from an EV charger?</dd>
+  <dt>Tools</dt><dd>QGIS (QuickOSM, QNEAT3), PyQGIS</dd>
+  <dt>Data</dt><dd>28 EV chargers from OpenStreetMap; 309 CSO Census 2022 Small Areas with population; OpenStreetMap road network</dd>
   <dt>CRS</dt><dd>Irish Transverse Mercator (EPSG:2157)</dd>
 </dl>
 <section id="problem" class="level2">
 <h2 class="anchored" data-anchor-id="problem">Problem</h2>
-<p>Ireland’s EV targets depend on public charging, but straight-line distance hides how far people actually have to drive. This project measures road distance from each Census Small Area to its nearest charger to find the gaps.</p>
+<p>Ireland’s EV targets depend on people being able to charge, but straight-line distance hides how far people actually have to drive. This project measures road distance from every Census Small Area in Galway City to its nearest charger, then weights the result by population to show how many residents are poorly served.</p>
 </section>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
 <ul>
-<li>CSO Census Small Area boundaries, with population</li>
-<li>Public EV charge point locations</li>
-<li>OpenStreetMap road network, clipped to Galway City</li>
+<li>28 EV charger locations from OpenStreetMap, downloaded with QuickOSM</li>
+<li>309 CSO Census 2022 Small Area boundaries, joined to Small Area Population Statistics</li>
+<li>OpenStreetMap road network for Galway City</li>
 </ul>
 </section>
 <section id="method" class="level2">
 <h2 class="anchored" data-anchor-id="method">Method</h2>
 <ul>
-<li>Converted Small Area polygons to centroids</li>
-<li>Built a routable road network from OSM</li>
-<li>Calculated the shortest road distance from each centroid to its nearest charger</li>
-<li>Classified Small Areas into distance bands and mapped them as a choropleth</li>
+<li>Reprojected every layer to Irish Transverse Mercator so all distances are in metres</li>
+<li>Created a centroid for each Small Area</li>
+<li>Measured straight-line distance to the nearest charger (Distance to Nearest Hub)</li>
+<li>Measured road-network distance with a QNEAT3 origin–destination matrix, keeping the shortest route for each Small Area</li>
+<li>Joined Census population to turn distances into numbers of residents</li>
+<li>Built the A4 layout with a PyQGIS script, so the headline figures are calculated from the data rather than typed in</li>
 </ul>
 </section>
 <section id="result" class="level2">
 <h2 class="anchored" data-anchor-id="result">Result</h2>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><img src="thumbnail.png" class="img-fluid figure-img" alt="Choropleth of road distance to nearest EV charger in Galway City"></p>
-<figcaption>Road distance to the nearest public EV charger by Census Small Area.</figcaption>
+<p><a href="ev-access-map.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Road distance to the nearest EV charger by Census Small Area, with the 10 furthest and 10 nearest areas outlined. Inset: the same classes using straight-line distance."><img src="ev-access-map.jpg" class="img-fluid figure-img" alt="Choropleth map of Galway City showing road distance from each Census Small Area to its nearest EV charger"></a></p>
+<figcaption>Road distance to the nearest EV charger by Census Small Area, with the 10 furthest and 10 nearest areas outlined. Inset: the same classes using straight-line distance.</figcaption>
 </figure>
 </div>
-<div class="todo">
-<p><strong>Add:</strong> your final map, plus 2–3 findings with numbers. For example: the share of Small Areas (or residents) more than 2 km by road from a charger, and which parts of the city are worst served.</p>
-</div>
+<ul>
+<li><strong>66% of residents</strong> (about 55,600 people) live more than 1 km by road from a charger.</li>
+<li><strong>28%</strong> (23,960 people) live more than 2 km away, and <strong>5%</strong> (4,199 people) more than 3 km.</li>
+<li><strong>1.5 km</strong> is the average resident’s distance to the nearest charger, weighted by population.</li>
+<li><strong>Chargers cluster in the city centre</strong>, so the outer residential edges of the city are the worst served.</li>
+<li><strong>Straight-line distance understates real trips</strong>, most of all where the river or the bay forces a detour.</li>
+</ul>
 </section>
-<section id="code" class="level2">
-<h2 class="anchored" data-anchor-id="code">Code</h2>
-<div class="todo">
-<p><strong>Add:</strong> link to the GitHub repo or QGIS model, e.g.&nbsp;<code>https://github.com/carlos6is/galway-ev-access</code></p>
-</div>
+<section id="limitations" class="level2">
+<h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
+<ul>
+<li>Distances are measured from Small Area centroids, so parts of large Small Areas are closer to a charger than shown.</li>
+<li>OpenStreetMap charger data may be incomplete and can include chargers that aren’t open to the public.</li>
+<li>One Small Area has no road connection. It is counted in the population total but not in the distance figures.</li>
+</ul>
 
 
 </section>
@@ -636,6 +646,38 @@ ul.task-list li input[type="checkbox"] {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

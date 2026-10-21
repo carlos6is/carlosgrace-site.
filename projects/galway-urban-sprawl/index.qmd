@@ -1,15 +1,16 @@
 ---
 title: "Galway urban sprawl, 1990–2025"
-description: "Thirty-five years of land cover change around Galway City, measured with CORINE data, density gradients and centroid shift."
-image: thumbnail.png
-categories: [QGIS, R, CORINE, Land cover change]
+description: "Galway's urban footprint grew 88% between 1990 and 2018, almost all of it before 2006. Mapped with CORINE land cover and set against four City Development Plans."
+image: thumbnail.jpg
+categories: [QGIS, R, CORINE, Land cover change, Policy analysis]
 ---
 
 ```{=html}
 <dl class="project-facts">
-  <dt>Question</dt><dd>How far and in which direction has Galway's built-up area spread since 1990, and how did planning policy shape it?</dd>
+  <dt>Question</dt><dd>How far and in which direction has Galway grown since 1990, and has planning policy changed that path?</dd>
   <dt>Tools</dt><dd>QGIS, R</dd>
-  <dt>Data</dt><dd>CORINE Land Cover (1990–2018 series and latest release), Galway City Development Plans</dd>
+  <dt>Data</dt><dd>CORINE Land Cover (1990, 2000, 2006, 2012, 2018); four Galway City Development Plans (2005–2029)</dd>
+  <dt>Study area</dt><dd>9 km buffer centred on Eyre Square</dd>
   <dt>CRS</dt><dd>Irish Transverse Mercator (EPSG:2157)</dd>
   <dt>Context</dt><dd>BSc dissertation, University of Galway. Graded 78%.</dd>
 </dl>
@@ -17,31 +18,41 @@ categories: [QGIS, R, CORINE, Land cover change]
 
 ## Problem
 
-Galway is one of the fastest-growing cities in Ireland. This project measured where that growth went between 1990 and 2025, and whether development followed the city plans or locked in a low-density pattern that later plans struggled to reverse (path dependency).
+Galway City nearly doubled its urban footprint during the Celtic Tiger years. Each City Development Plan since has promised compact growth, brownfield regeneration and a shift away from car dependency. This project tests whether the city has actually changed course, or whether new sustainability language has been layered on top of the suburban pattern set in the 1990s.
 
 ## Data
 
-- CORINE Land Cover layers for each available year, reclassified to artificial surfaces vs. other cover
-- Galway City Development Plans, coded qualitatively for policy on density and expansion
+- CORINE Land Cover rasters at five time points, reclassified to urban and non-urban land
+- Four consecutive Galway City Development Plans, 2005–2011 to 2023–2029
 
 ## Method
 
-- Reprojected all layers to ITM (EPSG:2157) so distances and areas are in metres
-- Calculated artificial-surface area per year and the change between periods
-- Built density gradients: share of built-up land in rings at set distances from the city centre
-- Tracked the centroid of built-up land each year to measure the direction and distance of shift
-- Coded development plan text for themes such as compact growth and suburban expansion, then compared policy timing with the spatial change
+- Clipped each CORINE year to a 9 km buffer around Eyre Square and processed it in QGIS
+- Measured four things for each year: total urban land, density across concentric rings, fragmentation (patch count and Largest Patch Index) and the area-weighted centroid of urban land
+- Coded each development plan against ten codes, five path dependency indicators and five transition signals, in two passes for consistency
+- Compared what the plans promised with what the land cover record shows
 
 ## Result
 
-![Built-up land change around Galway City, 1990–2025.](thumbnail.png){fig-alt="Map of Galway built-up area change 1990 to 2025"}
+![Urban extent by CORINE year. Growth spread west towards Knocknacarra, east along the N6 corridor and out to Oranmore.](footprint-expansion.jpg){fig-alt="Map of Galway's urban footprint coloured by year it first appears, 1990 to 2018, within a 9 km study area"}
 
-::: {.todo}
-**Add:** your final change map in place of the placeholder above, plus 2–3 findings with numbers. For example: total growth in artificial surface (hectares or %), how far the centroid moved and in which direction, and which plan period lines up with the biggest change.
-:::
+- **88% growth.** The urban footprint grew by 88% between 1990 and 2018, and virtually all of it happened before 2006.
+- **Fragmented growth.** Fragmentation peaked in 2006 at 32 separate urban patches, with the largest single patch only 29.5% of urban land.
+- **No reversal.** After the 2008 crash, growth stopped, but the dispersed pattern it left behind did not reverse.
 
-## Code
+![1990 urban land compared with 2018. Most new land sits on the edges of the city and outside the city boundary.](extent-comparison.jpg){fig-alt="Map comparing Galway urban land in 1990 and 2018"}
 
-::: {.todo}
-**Add:** link to the GitHub repo with the R scripts, e.g. `https://github.com/carlos6is/galway-urban-sprawl`
-:::
+![Movement of the area-weighted centre of urban land between CORINE years.](centroid-shift.jpg){fig-alt="Map of the urban centroid moving 885 m west, 1,063 m east, then 501 m west between 1990 and 2012"}
+
+- **The centre of growth moved.** It shifted 885 m west during the 1990s as suburbs spread towards Knocknacarra. It then swung 1,063 m east by 2006 and 501 m back west by 2012, where it stayed.
+
+## Policy findings
+
+- **45 coded entries** across the four plans: 17 path dependency indicators and 28 transition signals.
+- **More sustainability language.** The ratio of path dependency to transition signals fell from 1.20 in the 2005–2011 plan to 0.30 in the 2023–2029 plan.
+- **Same unfinished projects.** The ring road, Ardaun new town and Ceannt Quarter regeneration appear in all four plans without being delivered.
+- **Little new governance.** Only one entry across all four plans coded as innovative governance.
+
+## Conclusion
+
+Galway's planning shows **layering** rather than real transition. Sustainability commitments have grown more ambitious with each plan, but the car-dependent suburban form built in the 1990s is still in place. The 2023–2029 plan, backed by national mandates, gives some grounds for a new path, but the lack of new delivery mechanisms suggests the pattern has not yet broken.

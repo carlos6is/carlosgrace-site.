@@ -116,91 +116,98 @@
     "href": "projects/galway-urban-sprawl/index.html",
     "title": "Galway urban sprawl, 1990–2025",
     "section": "",
-    "text": "QuestionHow far and in which direction has Galway's built-up area spread since 1990, and how did planning policy shape it?\n  ToolsQGIS, R\n  DataCORINE Land Cover (1990–2018 series and latest release), Galway City Development Plans\n  CRSIrish Transverse Mercator (EPSG:2157)\n  ContextBSc dissertation, University of Galway. Graded 78%."
+    "text": "QuestionHow far and in which direction has Galway grown since 1990, and has planning policy changed that path?\n  ToolsQGIS, R\n  DataCORINE Land Cover (1990, 2000, 2006, 2012, 2018); four Galway City Development Plans (2005–2029)\n  Study area9 km buffer centred on Eyre Square\n  CRSIrish Transverse Mercator (EPSG:2157)\n  ContextBSc dissertation, University of Galway. Graded 78%."
   },
   {
     "objectID": "projects/galway-urban-sprawl/index.html#problem",
     "href": "projects/galway-urban-sprawl/index.html#problem",
     "title": "Galway urban sprawl, 1990–2025",
     "section": "Problem",
-    "text": "Problem\nGalway is one of the fastest-growing cities in Ireland. This project measured where that growth went between 1990 and 2025, and whether development followed the city plans or locked in a low-density pattern that later plans struggled to reverse (path dependency)."
+    "text": "Problem\nGalway City nearly doubled its urban footprint during the Celtic Tiger years. Each City Development Plan since has promised compact growth, brownfield regeneration and a shift away from car dependency. This project tests whether the city has actually changed course, or whether new sustainability language has been layered on top of the suburban pattern set in the 1990s."
   },
   {
     "objectID": "projects/galway-urban-sprawl/index.html#data",
     "href": "projects/galway-urban-sprawl/index.html#data",
     "title": "Galway urban sprawl, 1990–2025",
     "section": "Data",
-    "text": "Data\n\nCORINE Land Cover layers for each available year, reclassified to artificial surfaces vs. other cover\nGalway City Development Plans, coded qualitatively for policy on density and expansion"
+    "text": "Data\n\nCORINE Land Cover rasters at five time points, reclassified to urban and non-urban land\nFour consecutive Galway City Development Plans, 2005–2011 to 2023–2029"
   },
   {
     "objectID": "projects/galway-urban-sprawl/index.html#method",
     "href": "projects/galway-urban-sprawl/index.html#method",
     "title": "Galway urban sprawl, 1990–2025",
     "section": "Method",
-    "text": "Method\n\nReprojected all layers to ITM (EPSG:2157) so distances and areas are in metres\nCalculated artificial-surface area per year and the change between periods\nBuilt density gradients: share of built-up land in rings at set distances from the city centre\nTracked the centroid of built-up land each year to measure the direction and distance of shift\nCoded development plan text for themes such as compact growth and suburban expansion, then compared policy timing with the spatial change"
+    "text": "Method\n\nClipped each CORINE year to a 9 km buffer around Eyre Square and processed it in QGIS\nMeasured four things for each year: total urban land, density across concentric rings, fragmentation (patch count and Largest Patch Index) and the area-weighted centroid of urban land\nCoded each development plan against ten codes, five path dependency indicators and five transition signals, in two passes for consistency\nCompared what the plans promised with what the land cover record shows"
   },
   {
     "objectID": "projects/galway-urban-sprawl/index.html#result",
     "href": "projects/galway-urban-sprawl/index.html#result",
     "title": "Galway urban sprawl, 1990–2025",
     "section": "Result",
-    "text": "Result\n\n\n\nBuilt-up land change around Galway City, 1990–2025.\n\n\n\nAdd: your final change map in place of the placeholder above, plus 2–3 findings with numbers. For example: total growth in artificial surface (hectares or %), how far the centroid moved and in which direction, and which plan period lines up with the biggest change."
+    "text": "Result\n\n\n\nUrban extent by CORINE year. Growth spread west towards Knocknacarra, east along the N6 corridor and out to Oranmore.\n\n\n\n88% growth. The urban footprint grew by 88% between 1990 and 2018, and virtually all of it happened before 2006.\nFragmented growth. Fragmentation peaked in 2006 at 32 separate urban patches, with the largest single patch only 29.5% of urban land.\nNo reversal. After the 2008 crash, growth stopped, but the dispersed pattern it left behind did not reverse.\n\n\n\n\n1990 urban land compared with 2018. Most new land sits on the edges of the city and outside the city boundary.\n\n\n\n\n\nMovement of the area-weighted centre of urban land between CORINE years.\n\n\n\nThe centre of growth moved. It shifted 885 m west during the 1990s as suburbs spread towards Knocknacarra. It then swung 1,063 m east by 2006 and 501 m back west by 2012, where it stayed."
   },
   {
-    "objectID": "projects/galway-urban-sprawl/index.html#code",
-    "href": "projects/galway-urban-sprawl/index.html#code",
+    "objectID": "projects/galway-urban-sprawl/index.html#policy-findings",
+    "href": "projects/galway-urban-sprawl/index.html#policy-findings",
     "title": "Galway urban sprawl, 1990–2025",
-    "section": "Code",
-    "text": "Code\n\nAdd: link to the GitHub repo with the R scripts, e.g. https://github.com/carlos6is/galway-urban-sprawl"
+    "section": "Policy findings",
+    "text": "Policy findings\n\n45 coded entries across the four plans: 17 path dependency indicators and 28 transition signals.\nMore sustainability language. The ratio of path dependency to transition signals fell from 1.20 in the 2005–2011 plan to 0.30 in the 2023–2029 plan.\nSame unfinished projects. The ring road, Ardaun new town and Ceannt Quarter regeneration appear in all four plans without being delivered.\nLittle new governance. Only one entry across all four plans coded as innovative governance."
+  },
+  {
+    "objectID": "projects/galway-urban-sprawl/index.html#conclusion",
+    "href": "projects/galway-urban-sprawl/index.html#conclusion",
+    "title": "Galway urban sprawl, 1990–2025",
+    "section": "Conclusion",
+    "text": "Conclusion\nGalway’s planning shows layering rather than real transition. Sustainability commitments have grown more ambitious with each plan, but the car-dependent suburban form built in the 1990s is still in place. The 2023–2029 plan, backed by national mandates, gives some grounds for a new path, but the lack of new delivery mechanisms suggests the pattern has not yet broken."
   },
   {
     "objectID": "projects/ev-charger-access/index.html",
     "href": "projects/ev-charger-access/index.html",
     "title": "EV charger access, Galway City",
     "section": "",
-    "text": "QuestionWhich neighbourhoods in Galway City are furthest by road from a public EV charger?\n  ToolsQGIS\n  DataCSO Census Small Areas, public EV charge point locations, OpenStreetMap road network\n  CRSIrish Transverse Mercator (EPSG:2157)"
+    "text": "QuestionHow far, by road, does each Galway City resident live from an EV charger?\n  ToolsQGIS (QuickOSM, QNEAT3), PyQGIS\n  Data28 EV chargers from OpenStreetMap; 309 CSO Census 2022 Small Areas with population; OpenStreetMap road network\n  CRSIrish Transverse Mercator (EPSG:2157)"
   },
   {
     "objectID": "projects/ev-charger-access/index.html#problem",
     "href": "projects/ev-charger-access/index.html#problem",
     "title": "EV charger access, Galway City",
     "section": "Problem",
-    "text": "Problem\nIreland’s EV targets depend on public charging, but straight-line distance hides how far people actually have to drive. This project measures road distance from each Census Small Area to its nearest charger to find the gaps."
+    "text": "Problem\nIreland’s EV targets depend on people being able to charge, but straight-line distance hides how far people actually have to drive. This project measures road distance from every Census Small Area in Galway City to its nearest charger, then weights the result by population to show how many residents are poorly served."
   },
   {
     "objectID": "projects/ev-charger-access/index.html#data",
     "href": "projects/ev-charger-access/index.html#data",
     "title": "EV charger access, Galway City",
     "section": "Data",
-    "text": "Data\n\nCSO Census Small Area boundaries, with population\nPublic EV charge point locations\nOpenStreetMap road network, clipped to Galway City"
+    "text": "Data\n\n28 EV charger locations from OpenStreetMap, downloaded with QuickOSM\n309 CSO Census 2022 Small Area boundaries, joined to Small Area Population Statistics\nOpenStreetMap road network for Galway City"
   },
   {
     "objectID": "projects/ev-charger-access/index.html#method",
     "href": "projects/ev-charger-access/index.html#method",
     "title": "EV charger access, Galway City",
     "section": "Method",
-    "text": "Method\n\nConverted Small Area polygons to centroids\nBuilt a routable road network from OSM\nCalculated the shortest road distance from each centroid to its nearest charger\nClassified Small Areas into distance bands and mapped them as a choropleth"
+    "text": "Method\n\nReprojected every layer to Irish Transverse Mercator so all distances are in metres\nCreated a centroid for each Small Area\nMeasured straight-line distance to the nearest charger (Distance to Nearest Hub)\nMeasured road-network distance with a QNEAT3 origin–destination matrix, keeping the shortest route for each Small Area\nJoined Census population to turn distances into numbers of residents\nBuilt the A4 layout with a PyQGIS script, so the headline figures are calculated from the data rather than typed in"
   },
   {
     "objectID": "projects/ev-charger-access/index.html#result",
     "href": "projects/ev-charger-access/index.html#result",
     "title": "EV charger access, Galway City",
     "section": "Result",
-    "text": "Result\n\n\n\nRoad distance to the nearest public EV charger by Census Small Area.\n\n\n\nAdd: your final map, plus 2–3 findings with numbers. For example: the share of Small Areas (or residents) more than 2 km by road from a charger, and which parts of the city are worst served."
+    "text": "Result\n\n\n\nRoad distance to the nearest EV charger by Census Small Area, with the 10 furthest and 10 nearest areas outlined. Inset: the same classes using straight-line distance.\n\n\n\n66% of residents (about 55,600 people) live more than 1 km by road from a charger.\n28% (23,960 people) live more than 2 km away, and 5% (4,199 people) more than 3 km.\n1.5 km is the average resident’s distance to the nearest charger, weighted by population.\nChargers cluster in the city centre, so the outer residential edges of the city are the worst served.\nStraight-line distance understates real trips, most of all where the river or the bay forces a detour."
   },
   {
-    "objectID": "projects/ev-charger-access/index.html#code",
-    "href": "projects/ev-charger-access/index.html#code",
+    "objectID": "projects/ev-charger-access/index.html#limitations",
+    "href": "projects/ev-charger-access/index.html#limitations",
     "title": "EV charger access, Galway City",
-    "section": "Code",
-    "text": "Code\n\nAdd: link to the GitHub repo or QGIS model, e.g. https://github.com/carlos6is/galway-ev-access"
+    "section": "Limitations",
+    "text": "Limitations\n\nDistances are measured from Small Area centroids, so parts of large Small Areas are closer to a charger than shown.\nOpenStreetMap charger data may be incomplete and can include chargers that aren’t open to the public.\nOne Small Area has no road connection. It is counted in the population total but not in the distance figures."
   },
   {
     "objectID": "projects.html",
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "Galway urban sprawl, 1990–2025\n\n\n\nQGIS\n\nR\n\nCORINE\n\nLand cover change\n\n\n\nThirty-five years of land cover change around Galway City, measured with CORINE data, density gradients and centroid shift.\n\n\n\n\n\n\n\n\n\n\n\n\nEV charger access, Galway City\n\n\n\nQGIS\n\nNetwork analysis\n\nCensus\n\nInfrastructure\n\n\n\nRoad distance from every Census Small Area to its nearest public EV charger, showing which neighbourhoods are underserved.\n\n\n\n\n\n\n\n\n\n\n\n\nRainfall interpolation by kriging\n\n\n\nR\n\nGeostatistics\n\nKriging\n\n\n\nA continuous rainfall surface built from point station data with ordinary kriging in R, with the variogram and prediction error mapped.\n\n\n\n\n\n\n\n\n\n\n\n\nHeritage StoryMaps, Galway County Council\n\n\n\nArcGIS Online\n\nStoryMaps\n\nStakeholder work\n\n\n\nPublic-facing ArcGIS StoryMaps built for local heritage groups during a council GIS internship, and presented to elected members.\n\n\n\n\n\nNo matching items"
+    "text": "Galway urban sprawl, 1990–2025\n\n\n\nQGIS\n\nR\n\nCORINE\n\nLand cover change\n\nPolicy analysis\n\n\n\nGalway’s urban footprint grew 88% between 1990 and 2018, almost all of it before 2006. Mapped with CORINE land cover and set against four City Development Plans.\n\n\n\n\n\n\n\n\n\n\n\n\nEV charger access, Galway City\n\n\n\nQGIS\n\nNetwork analysis\n\nCensus\n\nInfrastructure\n\nPyQGIS\n\n\n\nRoad distance from every Census Small Area to its nearest EV charger. 66% of Galway City residents live more than 1 km away by road.\n\n\n\n\n\n\n\n\n\n\n\n\nRainfall interpolation by kriging\n\n\n\nR\n\nGeostatistics\n\nKriging\n\n\n\nA continuous rainfall surface built from point station data with ordinary kriging in R, with the variogram and prediction error mapped.\n\n\n\n\n\n\n\n\n\n\n\n\nHeritage StoryMaps, Galway County Council\n\n\n\nArcGIS Online\n\nStoryMaps\n\nStakeholder work\n\n\n\nPublic-facing ArcGIS StoryMaps built for local heritage groups during a council GIS internship, and presented to elected members.\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -214,7 +221,7 @@
     "href": "index.html#selected-work",
     "title": "Carlos Grace",
     "section": "Selected work",
-    "text": "Selected work\n\n\n\n\n\n\n\n\n\n\nGalway urban sprawl, 1990–2025\n\n\nThirty-five years of land cover change around Galway City, measured with CORINE data, density gradients and centroid shift.\n\n\n\n\n\n\n\n\n\n\n\n\nEV charger access, Galway City\n\n\nRoad distance from every Census Small Area to its nearest public EV charger, showing which neighbourhoods are underserved.\n\n\n\n\n\n\n\n\n\n\n\n\nRainfall interpolation by kriging\n\n\nA continuous rainfall surface built from point station data with ordinary kriging in R, with the variogram and prediction error mapped.\n\n\n\n\n\nNo matching items\n\nAll projects"
+    "text": "Selected work\n\n\n\n\n\n\n\n\n\n\nGalway urban sprawl, 1990–2025\n\n\nGalway’s urban footprint grew 88% between 1990 and 2018, almost all of it before 2006. Mapped with CORINE land cover and set against four City Development Plans.\n\n\n\n\n\n\n\n\n\n\n\n\nEV charger access, Galway City\n\n\nRoad distance from every Census Small Area to its nearest EV charger. 66% of Galway City residents live more than 1 km away by road.\n\n\n\n\n\n\n\n\n\n\n\n\nRainfall interpolation by kriging\n\n\nA continuous rainfall surface built from point station data with ordinary kriging in R, with the variogram and prediction error mapped.\n\n\n\n\n\nNo matching items\n\nAll projects"
   },
   {
     "objectID": "index.html#tools",

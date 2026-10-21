@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Thirty-five years of land cover change around Galway City, measured with CORINE data, density gradients and centroid shift.">
+<meta name="description" content="Galway’s urban footprint grew 88% between 1990 and 2018, almost all of it before 2006. Mapped with CORINE land cover and set against four City Development Plans.">
 
 <title>Galway urban sprawl, 1990–2025 – Carlos Grace</title>
 <style>
@@ -43,6 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-4c6cf13d2dc481285daf88e88997e842.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,11 +76,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="Galway urban sprawl, 1990–2025 – Carlos Grace">
-<meta property="og:description" content="Thirty-five years of land cover change around Galway City, measured with CORINE data, density gradients and centroid shift.">
-<meta property="og:image" content="https://carlosgrace.com/projects/galway-urban-sprawl/thumbnail.png">
+<meta property="og:description" content="Galway’s urban footprint grew 88% between 1990 and 2018, almost all of it before 2006. Mapped with CORINE land cover and set against four City Development Plans.">
+<meta property="og:image" content="https://carlosgrace.com/projects/galway-urban-sprawl/thumbnail.jpg">
 <meta property="og:site_name" content="Carlos Grace">
-<meta property="og:image:height" content="800">
-<meta property="og:image:width" content="1200">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -146,12 +147,13 @@ ul.task-list li input[type="checkbox"] {
     <div class="quarto-category">R</div>
     <div class="quarto-category">CORINE</div>
     <div class="quarto-category">Land cover change</div>
+    <div class="quarto-category">Policy analysis</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Thirty-five years of land cover change around Galway City, measured with CORINE data, density gradients and centroid shift.
+    Galway’s urban footprint grew 88% between 1990 and 2018, almost all of it before 2006. Mapped with CORINE land cover and set against four City Development Plans.
   </div>
 </div>
 
@@ -169,50 +171,74 @@ ul.task-list li input[type="checkbox"] {
 
 
 <dl class="project-facts">
-  <dt>Question</dt><dd>How far and in which direction has Galway's built-up area spread since 1990, and how did planning policy shape it?</dd>
+  <dt>Question</dt><dd>How far and in which direction has Galway grown since 1990, and has planning policy changed that path?</dd>
   <dt>Tools</dt><dd>QGIS, R</dd>
-  <dt>Data</dt><dd>CORINE Land Cover (1990–2018 series and latest release), Galway City Development Plans</dd>
+  <dt>Data</dt><dd>CORINE Land Cover (1990, 2000, 2006, 2012, 2018); four Galway City Development Plans (2005–2029)</dd>
+  <dt>Study area</dt><dd>9 km buffer centred on Eyre Square</dd>
   <dt>CRS</dt><dd>Irish Transverse Mercator (EPSG:2157)</dd>
   <dt>Context</dt><dd>BSc dissertation, University of Galway. Graded 78%.</dd>
 </dl>
 <section id="problem" class="level2">
 <h2 class="anchored" data-anchor-id="problem">Problem</h2>
-<p>Galway is one of the fastest-growing cities in Ireland. This project measured where that growth went between 1990 and 2025, and whether development followed the city plans or locked in a low-density pattern that later plans struggled to reverse (path dependency).</p>
+<p>Galway City nearly doubled its urban footprint during the Celtic Tiger years. Each City Development Plan since has promised compact growth, brownfield regeneration and a shift away from car dependency. This project tests whether the city has actually changed course, or whether new sustainability language has been layered on top of the suburban pattern set in the 1990s.</p>
 </section>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
 <ul>
-<li>CORINE Land Cover layers for each available year, reclassified to artificial surfaces vs.&nbsp;other cover</li>
-<li>Galway City Development Plans, coded qualitatively for policy on density and expansion</li>
+<li>CORINE Land Cover rasters at five time points, reclassified to urban and non-urban land</li>
+<li>Four consecutive Galway City Development Plans, 2005–2011 to 2023–2029</li>
 </ul>
 </section>
 <section id="method" class="level2">
 <h2 class="anchored" data-anchor-id="method">Method</h2>
 <ul>
-<li>Reprojected all layers to ITM (EPSG:2157) so distances and areas are in metres</li>
-<li>Calculated artificial-surface area per year and the change between periods</li>
-<li>Built density gradients: share of built-up land in rings at set distances from the city centre</li>
-<li>Tracked the centroid of built-up land each year to measure the direction and distance of shift</li>
-<li>Coded development plan text for themes such as compact growth and suburban expansion, then compared policy timing with the spatial change</li>
+<li>Clipped each CORINE year to a 9 km buffer around Eyre Square and processed it in QGIS</li>
+<li>Measured four things for each year: total urban land, density across concentric rings, fragmentation (patch count and Largest Patch Index) and the area-weighted centroid of urban land</li>
+<li>Coded each development plan against ten codes, five path dependency indicators and five transition signals, in two passes for consistency</li>
+<li>Compared what the plans promised with what the land cover record shows</li>
 </ul>
 </section>
 <section id="result" class="level2">
 <h2 class="anchored" data-anchor-id="result">Result</h2>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><img src="thumbnail.png" class="img-fluid figure-img" alt="Map of Galway built-up area change 1990 to 2025"></p>
-<figcaption>Built-up land change around Galway City, 1990–2025.</figcaption>
+<p><a href="footprint-expansion.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Urban extent by CORINE year. Growth spread west towards Knocknacarra, east along the N6 corridor and out to Oranmore."><img src="footprint-expansion.jpg" class="img-fluid figure-img" alt="Map of Galway's urban footprint coloured by year it first appears, 1990 to 2018, within a 9 km study area"></a></p>
+<figcaption>Urban extent by CORINE year. Growth spread west towards Knocknacarra, east along the N6 corridor and out to Oranmore.</figcaption>
 </figure>
 </div>
-<div class="todo">
-<p><strong>Add:</strong> your final change map in place of the placeholder above, plus 2–3 findings with numbers. For example: total growth in artificial surface (hectares or %), how far the centroid moved and in which direction, and which plan period lines up with the biggest change.</p>
+<ul>
+<li><strong>88% growth.</strong> The urban footprint grew by 88% between 1990 and 2018, and virtually all of it happened before 2006.</li>
+<li><strong>Fragmented growth.</strong> Fragmentation peaked in 2006 at 32 separate urban patches, with the largest single patch only 29.5% of urban land.</li>
+<li><strong>No reversal.</strong> After the 2008 crash, growth stopped, but the dispersed pattern it left behind did not reverse.</li>
+</ul>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><a href="extent-comparison.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="1990 urban land compared with 2018. Most new land sits on the edges of the city and outside the city boundary."><img src="extent-comparison.jpg" class="img-fluid figure-img" alt="Map comparing Galway urban land in 1990 and 2018"></a></p>
+<figcaption>1990 urban land compared with 2018. Most new land sits on the edges of the city and outside the city boundary.</figcaption>
+</figure>
 </div>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><a href="centroid-shift.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Movement of the area-weighted centre of urban land between CORINE years."><img src="centroid-shift.jpg" class="img-fluid figure-img" alt="Map of the urban centroid moving 885 m west, 1,063 m east, then 501 m west between 1990 and 2012"></a></p>
+<figcaption>Movement of the area-weighted centre of urban land between CORINE years.</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>The centre of growth moved.</strong> It shifted 885 m west during the 1990s as suburbs spread towards Knocknacarra. It then swung 1,063 m east by 2006 and 501 m back west by 2012, where it stayed.</li>
+</ul>
 </section>
-<section id="code" class="level2">
-<h2 class="anchored" data-anchor-id="code">Code</h2>
-<div class="todo">
-<p><strong>Add:</strong> link to the GitHub repo with the R scripts, e.g.&nbsp;<code>https://github.com/carlos6is/galway-urban-sprawl</code></p>
-</div>
+<section id="policy-findings" class="level2">
+<h2 class="anchored" data-anchor-id="policy-findings">Policy findings</h2>
+<ul>
+<li><strong>45 coded entries</strong> across the four plans: 17 path dependency indicators and 28 transition signals.</li>
+<li><strong>More sustainability language.</strong> The ratio of path dependency to transition signals fell from 1.20 in the 2005–2011 plan to 0.30 in the 2023–2029 plan.</li>
+<li><strong>Same unfinished projects.</strong> The ring road, Ardaun new town and Ceannt Quarter regeneration appear in all four plans without being delivered.</li>
+<li><strong>Little new governance.</strong> Only one entry across all four plans coded as innovative governance.</li>
+</ul>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Galway’s planning shows <strong>layering</strong> rather than real transition. Sustainability commitments have grown more ambitious with each plan, but the car-dependent suburban form built in the 1990s is still in place. The 2023–2029 plan, backed by national mandates, gives some grounds for a new path, but the lack of new delivery mechanisms suggests the pattern has not yet broken.</p>
 
 
 </section>
@@ -637,6 +663,38 @@ ul.task-list li input[type="checkbox"] {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
