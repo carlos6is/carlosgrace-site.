@@ -1,0 +1,59 @@
+---
+title: "Nautical lights of Ireland"
+description: "An animated map of 449 coastal lights around Ireland, each flashing on its real charted cycle, with lighthouse beams cut off by the terrain."
+image: thumbnail.jpg
+categories: [Python, OpenStreetMap, DEM, Web mapping, Data visualisation]
+resources:
+  - live/index.html
+  - live/data.js
+---
+
+```{=html}
+<dl class="project-facts">
+  <dt>Question</dt><dd>Can open data reproduce what a sailor sees at night: every light on the Irish coast, flashing on its real cycle?</dd>
+  <dt>Tools</dt><dd>Python (requests, NumPy, Pillow), HTML canvas and JavaScript</dd>
+  <dt>Data</dt><dd>OpenSeaMap light tags from OpenStreetMap (Overpass API); Terrarium elevation tiles (AWS Terrain Tiles)</dd>
+  <dt>Projection</dt><dd>Web Mercator</dd>
+</dl>
+```
+
+## Live map
+
+Hover over a light to see its name, character and range. Every light flashes on its real charted cycle.
+
+```{=html}
+<div class="live-map">
+  <iframe src="live/index.html?embed" title="Animated map of Irish nautical lights" loading="lazy"></iframe>
+</div>
+<p class="live-map-link"><a href="live/index.html" target="_blank" rel="noopener">Open the map full screen</a></p>
+```
+
+## Problem
+
+Every lighthouse, beacon and buoy light has a published character, such as `Fl(2) W 10s`, that tells sailors how it flashes. Lighthouse maps usually show these lights as static dots. This project turns the characters back into motion, so the map shows the coast the way it looks from the sea at night.
+
+## Data
+
+- Every charted light around Ireland with `seamark:light` tags in OpenStreetMap, fetched through the Overpass API
+- Terrarium elevation tiles for the hillshade and for blocking beams with terrain
+
+## Method
+
+- Clipped the lights with a polygon to drop Scottish and Welsh lights inside the bounding box
+- Merged lights within 300 m of each other, keeping the one with the longest range, so harbour clusters don't blur into one blob
+- Parsed each light's character (Fl, Oc, Iso, Q, LFl, Mo and combinations such as VQ(6)+LFl) into an on/off timeline, using the exact `sequence` tag where it exists
+- Built a dark hillshade from the elevation tiles with NumPy
+- Gave rotating beams to lights with a range of 12 nautical miles or more, and ray-cast each beam against the terrain degree by degree, so headlands cut them off
+- Drew everything on an HTML canvas with additive blending, so overlapping glows merge along the coast
+- Added a built-in video recorder, which exports a 4:5 clip sized for Instagram
+
+## Result
+
+- **449 lights** on the Irish coast after merging harbour clusters: 184 white, 146 red, 102 green, 16 yellow and 1 blue.
+- **34 major lights** have rotating beams, such as Fastnet Rock, which flashes white every 5 seconds with a range of 28 nautical miles.
+- **Most of the lights are not lighthouses.** They are buoys and harbour beacons, which is why the map is titled *nautical lights*.
+
+## Limitations
+
+- OpenStreetMap is the only openly licensed source of Irish light data, so lights missing from OSM are missing from the map.
+- Each light is given a random starting point in its cycle, so the timing between neighbouring lights is not real.

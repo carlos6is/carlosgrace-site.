@@ -1,0 +1,62 @@
+---
+title: "Boston commuter flows"
+description: "Where 1.88 million workers in the Boston metro live and where they work, mapped tract to tract from 2023 US Census commuting data."
+image: thumbnail.jpg
+categories: [Python, pandas, Census, Flow mapping, deck.gl, Web mapping]
+resources:
+  - live/index.html
+---
+
+```{=html}
+<dl class="project-facts">
+  <dt>Question</dt><dd>Where do people in the Boston metro live, where do they work, and how far do they travel between the two?</dd>
+  <dt>Tools</dt><dd>Python (pandas, NumPy), deck.gl, JavaScript</dd>
+  <dt>Data</dt><dd>LEHD LODES8 origin–destination data, 2023, primary jobs; Census 2023 cartographic boundary tracts</dd>
+  <dt>Study area</dt><dd>Massachusetts part of the Boston-Cambridge-Newton metro: 1,028 census tracts, 147 towns</dd>
+</dl>
+```
+
+## Live map
+
+Hover a tract to see where its residents work and where its workers live. Switch between town and tract flows, filter by the number of workers, or click a corridor in the side panel to map it.
+
+```{=html}
+<div class="live-map-wide column-screen-inset">
+  <iframe src="live/index.html" title="Interactive map of Boston commuter flows" loading="lazy"></iframe>
+</div>
+<p class="live-map-link"><a href="live/index.html" target="_blank" rel="noopener">Open the map full screen</a></p>
+```
+
+## Problem
+
+Commuting shapes housing demand, transit planning and traffic, but census tables only give totals. LODES records the home and work location of almost every job in Massachusetts, which makes it possible to map the actual flows between neighbourhoods and measure how far people travel.
+
+## Data
+
+- LEHD LODES8 origin–destination file for Massachusetts, 2023, primary jobs only (JT01), so each worker is counted once
+- LODES geography crosswalk, linking each census block to its tract, town and metro area
+- US Census 2023 cartographic boundary tracts, clipped to the shoreline
+
+## Method
+
+- Filtered 1.7 million home-to-work block pairs to those with both ends in the Massachusetts part of the metro
+- Measured straight-line distance between the home and work block for every pair, then weighted by workers, so short commutes within a tract are not counted as zero
+- Summed the flows to tract pairs and town pairs, and placed each arc end at the worker-weighted centre of its tract or town, so arcs land where people actually live and work
+- Mapped the flows as a deck.gl arc layer, with town flows for the overview and tract flows for detail
+- Read the shapefile directly in Python, with no GDAL dependency, and built the page from a single data file
+
+## Result
+
+- **1.88 million workers** live and work in the Massachusetts part of the metro.
+- **16.6 km** (10.3 miles) is the average commute in a straight line, and the median is 12.3 km.
+- **23%** of workers commute less than 5 km, while **32%** commute 20 km or more.
+- **21%** work in the town they live in. In Boston itself, 58% of residents work in the city, but Boston residents hold only 31% of Boston's 555,000 jobs.
+- **The busiest corridor is Boston to Cambridge** (22,805 workers), followed by Quincy to Boston (18,621) and Cambridge to Boston (18,573).
+- **Higher earners commute farther.** Workers earning over $3,333 a month travel 17.3 km on average, against 14.7 km for those earning $1,250 or less.
+- **The Financial District** is the largest single job tract, with almost 75,000 jobs.
+
+## Limitations
+
+- Distances are straight-line. Real trips by road or transit are longer.
+- LODES home locations are partly synthetic to protect privacy, so results are reported at tract and town level, and the map only draws tract pairs with 3 or more workers.
+- The metro's two New Hampshire counties are not in the Massachusetts file, so they are left out.
