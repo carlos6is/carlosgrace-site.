@@ -35,137 +35,88 @@
     "text": "Skills\n\nGIS: QGIS, ArcGIS Online, ArcGIS StoryMaps\nAnalysis: R (spatial statistics, species distribution modelling, kriging, LISA), Python\nMethods: network and proximity analysis, land cover change, spatial autocorrelation, conservation planning\nCurrently learning: ArcGIS Pro, Python for GIS, FME"
   },
   {
-    "objectID": "projects/council-storymaps/index.html",
-    "href": "projects/council-storymaps/index.html",
-    "title": "Heritage StoryMaps, Galway County Council",
+    "objectID": "projects/ev-charger-access/index.html",
+    "href": "projects/ev-charger-access/index.html",
+    "title": "EV charger access, Galway City",
     "section": "",
-    "text": "RoleGIS Intern, Galway County Council\n  ToolsArcGIS Online, ArcGIS StoryMaps\n  AudienceLocal heritage groups and the public"
+    "text": "QuestionHow far, by road, does each Galway City resident live from an EV charger?\n  ToolsQGIS (QuickOSM, QNEAT3), PyQGIS\n  Data28 EV chargers from OpenStreetMap; 309 CSO Census 2022 Small Areas with population; OpenStreetMap road network\n  CRSIrish Transverse Mercator (EPSG:2157)"
   },
   {
-    "objectID": "projects/council-storymaps/index.html#problem",
-    "href": "projects/council-storymaps/index.html#problem",
-    "title": "Heritage StoryMaps, Galway County Council",
+    "objectID": "projects/ev-charger-access/index.html#problem",
+    "href": "projects/ev-charger-access/index.html#problem",
+    "title": "EV charger access, Galway City",
     "section": "Problem",
-    "text": "Problem\nHeritage groups hold detailed local knowledge but rarely have a way to share it as an interactive map. The brief was to turn their material into StoryMaps the public could explore."
+    "text": "Problem\nIreland’s EV targets depend on people being able to charge, but straight-line distance hides how far people actually have to drive. This project measures road distance from every Census Small Area in Galway City to its nearest charger, then weights the result by population to show how many residents are poorly served."
   },
   {
-    "objectID": "projects/council-storymaps/index.html#method",
-    "href": "projects/council-storymaps/index.html#method",
-    "title": "Heritage StoryMaps, Galway County Council",
-    "section": "Method",
-    "text": "Method\n\nGathered sites, photos and text from each heritage group\nBuilt the web maps and point layers in ArcGIS Online\nDesigned the StoryMaps for a non-technical public audience\nPresented the finished work to council members, including the Cathaoirleach"
-  },
-  {
-    "objectID": "projects/council-storymaps/index.html#result",
-    "href": "projects/council-storymaps/index.html#result",
-    "title": "Heritage StoryMaps, Galway County Council",
-    "section": "Result",
-    "text": "Result\n\n\n\nA heritage StoryMap built for Galway County Council.\n\n\n\nAdd: a screenshot of the best StoryMap, and links to the live StoryMaps if they’re public."
-  },
-  {
-    "objectID": "projects/council-storymaps/index.html#what-this-shows",
-    "href": "projects/council-storymaps/index.html#what-this-shows",
-    "title": "Heritage StoryMaps, Galway County Council",
-    "section": "What this shows",
-    "text": "What this shows\nTaking local knowledge from non-specialists, turning it into clear public maps, and presenting the result to elected representatives."
-  },
-  {
-    "objectID": "projects/nautical-lights/index.html",
-    "href": "projects/nautical-lights/index.html",
-    "title": "Nautical lights of Ireland",
-    "section": "",
-    "text": "QuestionCan open data reproduce what a sailor sees at night: every light on the Irish coast, flashing on its real cycle?\n  ToolsPython (requests, NumPy, Pillow), HTML canvas and JavaScript\n  DataOpenSeaMap light tags from OpenStreetMap (Overpass API); Terrarium elevation tiles (AWS Terrain Tiles)\n  ProjectionWeb Mercator"
-  },
-  {
-    "objectID": "projects/nautical-lights/index.html#live-map",
-    "href": "projects/nautical-lights/index.html#live-map",
-    "title": "Nautical lights of Ireland",
-    "section": "Live map",
-    "text": "Live map\nHover over a light to see its name, character and range. Every light flashes on its real charted cycle.\n\n  \n\nOpen the map full screen"
-  },
-  {
-    "objectID": "projects/nautical-lights/index.html#problem",
-    "href": "projects/nautical-lights/index.html#problem",
-    "title": "Nautical lights of Ireland",
-    "section": "Problem",
-    "text": "Problem\nEvery lighthouse, beacon and buoy light has a published character, such as Fl(2) W 10s, that tells sailors how it flashes. Lighthouse maps usually show these lights as static dots. This project turns the characters back into motion, so the map shows the coast the way it looks from the sea at night."
-  },
-  {
-    "objectID": "projects/nautical-lights/index.html#data",
-    "href": "projects/nautical-lights/index.html#data",
-    "title": "Nautical lights of Ireland",
+    "objectID": "projects/ev-charger-access/index.html#data",
+    "href": "projects/ev-charger-access/index.html#data",
+    "title": "EV charger access, Galway City",
     "section": "Data",
-    "text": "Data\n\nEvery charted light around Ireland with seamark:light tags in OpenStreetMap, fetched through the Overpass API\nTerrarium elevation tiles for the hillshade and for blocking beams with terrain"
+    "text": "Data\n\n28 EV charger locations from OpenStreetMap, downloaded with QuickOSM\n309 CSO Census 2022 Small Area boundaries, joined to Small Area Population Statistics\nOpenStreetMap road network for Galway City"
   },
   {
-    "objectID": "projects/nautical-lights/index.html#method",
-    "href": "projects/nautical-lights/index.html#method",
-    "title": "Nautical lights of Ireland",
+    "objectID": "projects/ev-charger-access/index.html#method",
+    "href": "projects/ev-charger-access/index.html#method",
+    "title": "EV charger access, Galway City",
     "section": "Method",
-    "text": "Method\n\nClipped the lights with a polygon to drop Scottish and Welsh lights inside the bounding box\nMerged lights within 300 m of each other, keeping the one with the longest range, so harbour clusters don’t blur into one blob\nParsed each light’s character (Fl, Oc, Iso, Q, LFl, Mo and combinations such as VQ(6)+LFl) into an on/off timeline, using the exact sequence tag where it exists\nBuilt a dark hillshade from the elevation tiles with NumPy\nGave rotating beams to lights with a range of 12 nautical miles or more, and ray-cast each beam against the terrain degree by degree, so headlands cut them off\nDrew everything on an HTML canvas with additive blending, so overlapping glows merge along the coast\nAdded a built-in video recorder, which exports a 4:5 clip sized for Instagram"
+    "text": "Method\n\nReprojected every layer to Irish Transverse Mercator so all distances are in metres\nCreated a centroid for each Small Area\nMeasured straight-line distance to the nearest charger (Distance to Nearest Hub)\nMeasured road-network distance with a QNEAT3 origin–destination matrix, keeping the shortest route for each Small Area\nJoined Census population to turn distances into numbers of residents\nBuilt the A4 layout with a PyQGIS script, so the headline figures are calculated from the data rather than typed in"
   },
   {
-    "objectID": "projects/nautical-lights/index.html#result",
-    "href": "projects/nautical-lights/index.html#result",
-    "title": "Nautical lights of Ireland",
+    "objectID": "projects/ev-charger-access/index.html#result",
+    "href": "projects/ev-charger-access/index.html#result",
+    "title": "EV charger access, Galway City",
     "section": "Result",
-    "text": "Result\n\n449 lights on the Irish coast after merging harbour clusters: 184 white, 146 red, 102 green, 16 yellow and 1 blue.\n34 major lights have rotating beams, such as Fastnet Rock, which flashes white every 5 seconds with a range of 28 nautical miles.\nMost of the lights are not lighthouses. They are buoys and harbour beacons, which is why the map is titled nautical lights."
+    "text": "Result\n\n\n\nRoad distance to the nearest EV charger by Census Small Area, with the 10 furthest and 10 nearest areas outlined. Inset: the same classes using straight-line distance.\n\n\n\n66% of residents (about 55,600 people) live more than 1 km by road from a charger.\n28% (23,960 people) live more than 2 km away, and 5% (4,199 people) more than 3 km.\n1.5 km is the average resident’s distance to the nearest charger, weighted by population.\nChargers cluster in the city centre, so the outer residential edges of the city are the worst served.\nStraight-line distance understates real trips, most of all where the river or the bay forces a detour."
   },
   {
-    "objectID": "projects/nautical-lights/index.html#limitations",
-    "href": "projects/nautical-lights/index.html#limitations",
-    "title": "Nautical lights of Ireland",
+    "objectID": "projects/ev-charger-access/index.html#limitations",
+    "href": "projects/ev-charger-access/index.html#limitations",
+    "title": "EV charger access, Galway City",
     "section": "Limitations",
-    "text": "Limitations\n\nOpenStreetMap is the only openly licensed source of Irish light data, so lights missing from OSM are missing from the map.\nEach light is given a random starting point in its cycle, so the timing between neighbouring lights is not real."
+    "text": "Limitations\n\nDistances are measured from Small Area centroids, so parts of large Small Areas are closer to a charger than shown.\nOpenStreetMap charger data may be incomplete and can include chargers that aren’t open to the public.\nOne Small Area has no road connection. It is counted in the population total but not in the distance figures."
   },
   {
-    "objectID": "projects/galway-urban-sprawl/index.html",
-    "href": "projects/galway-urban-sprawl/index.html",
-    "title": "Galway urban sprawl, 1990–2025",
+    "objectID": "projects/rainfall-kriging/index.html",
+    "href": "projects/rainfall-kriging/index.html",
+    "title": "Rainfall interpolation by kriging",
     "section": "",
-    "text": "QuestionHow far and in which direction has Galway grown since 1990, and has planning policy changed that path?\n  ToolsQGIS, R\n  DataCORINE Land Cover (1990, 2000, 2006, 2012, 2018); four Galway City Development Plans (2005–2029)\n  Study area9 km buffer centred on Eyre Square\n  CRSIrish Transverse Mercator (EPSG:2157)\n  ContextBSc dissertation, University of Galway. Graded 78%."
+    "text": "QuestionHow can scattered rain gauge readings be turned into a reliable rainfall map, and which kriging method predicts best?\n  ToolsR (sf, gstat, terra, mgcv, elevatr), QGIS\n  DataMean annual rainfall at 438 rain gauges; CSO 2022 Small Area boundaries; elevation model from elevatr\n  CRSIrish Transverse Mercator (EPSG:2157)\n  ContextAdvanced GIS module, University of Galway"
   },
   {
-    "objectID": "projects/galway-urban-sprawl/index.html#problem",
-    "href": "projects/galway-urban-sprawl/index.html#problem",
-    "title": "Galway urban sprawl, 1990–2025",
+    "objectID": "projects/rainfall-kriging/index.html#problem",
+    "href": "projects/rainfall-kriging/index.html#problem",
+    "title": "Rainfall interpolation by kriging",
     "section": "Problem",
-    "text": "Problem\nGalway City nearly doubled its urban footprint during the Celtic Tiger years. Each City Development Plan since has promised compact growth, brownfield regeneration and a shift away from car dependency. This project tests whether the city has actually changed course, or whether new sustainability language has been layered on top of the suburban pattern set in the 1990s."
+    "text": "Problem\nRainfall is measured at a limited number of rain gauges, but planning, flood risk and environmental work need values everywhere. Kriging predicts values between stations from how similar nearby readings are, and different versions of it handle trends and terrain differently. This project tests four versions against each other and combines them."
   },
   {
-    "objectID": "projects/galway-urban-sprawl/index.html#data",
-    "href": "projects/galway-urban-sprawl/index.html#data",
-    "title": "Galway urban sprawl, 1990–2025",
+    "objectID": "projects/rainfall-kriging/index.html#data",
+    "href": "projects/rainfall-kriging/index.html#data",
+    "title": "Rainfall interpolation by kriging",
     "section": "Data",
-    "text": "Data\n\nCORINE Land Cover rasters at five time points, reclassified to urban and non-urban land\nFour consecutive Galway City Development Plans, 2005–2011 to 2023–2029"
+    "text": "Data\n\nMean annual rainfall at 438 rain gauges, with station height, reprojected to Irish Transverse Mercator\nCSO 2022 Small Area boundaries, merged into a single outline of the Republic of Ireland\nA digital elevation model downloaded with elevatr, used as a predictor"
   },
   {
-    "objectID": "projects/galway-urban-sprawl/index.html#method",
-    "href": "projects/galway-urban-sprawl/index.html#method",
-    "title": "Galway urban sprawl, 1990–2025",
+    "objectID": "projects/rainfall-kriging/index.html#method",
+    "href": "projects/rainfall-kriging/index.html#method",
+    "title": "Rainfall interpolation by kriging",
     "section": "Method",
-    "text": "Method\n\nClipped each CORINE year to a 9 km buffer around Eyre Square and processed it in QGIS\nMeasured four things for each year: total urban land, density across concentric rings, fragmentation (patch count and Largest Patch Index) and the area-weighted centroid of urban land\nCoded each development plan against ten codes, five path dependency indicators and five transition signals, in two passes for consistency\nCompared what the plans promised with what the land cover record shows"
+    "text": "Method\n\nBuilt a 1 km prediction grid over the Republic of Ireland\nOrdinary kriging with a spherical variogram fitted to the station data\nUniversal kriging with an east–north trend, because rainfall falls steadily towards the east and, to a lesser extent, the north\nUniversal kriging with elevation added to the trend, because rainfall rises with altitude\nRegression kriging: a generalised additive model (GAM) of easting, northing and elevation, with its residuals kriged and added back\nTested every model with cross-validation (100-fold, and leave-one-out for regression kriging) and compared the RMSE\nAveraged the four predictions into an ensemble, which had the lowest cross-validation error of all the approaches, and mapped it in QGIS"
   },
   {
-    "objectID": "projects/galway-urban-sprawl/index.html#result",
-    "href": "projects/galway-urban-sprawl/index.html#result",
-    "title": "Galway urban sprawl, 1990–2025",
+    "objectID": "projects/rainfall-kriging/index.html#result",
+    "href": "projects/rainfall-kriging/index.html#result",
+    "title": "Rainfall interpolation by kriging",
     "section": "Result",
-    "text": "Result\n\n\n\nUrban extent by CORINE year. Growth spread west towards Knocknacarra, east along the N6 corridor and out to Oranmore.\n\n\n\n88% growth. The urban footprint grew by 88% between 1990 and 2018, and virtually all of it happened before 2006.\nFragmented growth. Fragmentation peaked in 2006 at 32 separate urban patches, with the largest single patch only 29.5% of urban land.\nNo reversal. After the 2008 crash, growth stopped, but the dispersed pattern it left behind did not reverse.\n\n\n\n\n1990 urban land compared with 2018. Most new land sits on the edges of the city and outside the city boundary.\n\n\n\n\n\nMovement of the area-weighted centre of urban land between CORINE years.\n\n\n\nThe centre of growth moved. It shifted 885 m west during the 1990s as suburbs spread towards Knocknacarra. It then swung 1,063 m east by 2006 and 501 m back west by 2012, where it stayed."
+    "text": "Result\n\n\n\nEnsemble prediction of mean annual rainfall at 1 km resolution, with the same gauges interpolated by nearest neighbour and inverse distance weighting for comparison. Click to enlarge.\n\n\n\nPredicted rainfall ranges from 668 mm to 3,355 mm a year.\nThe wettest areas are the mountains of west Mayo and Kerry, with a smaller peak over the Wicklow Mountains.\nThe east and midlands are driest, matching the east–west trend the universal kriging picked up.\nElevation explains most of the local detail. Once east, north and elevation were in the model, the trend accounted for most of the variation, and kriging the residuals added fine-scale correction.\nAveraging beat every single model. The ensemble of all four had the lowest cross-validation error.\nKriging with elevation follows the terrain. Nearest neighbour and inverse distance weighting only spread each gauge’s value outwards, so they miss rain on high ground between gauges."
   },
   {
-    "objectID": "projects/galway-urban-sprawl/index.html#policy-findings",
-    "href": "projects/galway-urban-sprawl/index.html#policy-findings",
-    "title": "Galway urban sprawl, 1990–2025",
-    "section": "Policy findings",
-    "text": "Policy findings\n\n45 coded entries across the four plans: 17 path dependency indicators and 28 transition signals.\nMore sustainability language. The ratio of path dependency to transition signals fell from 1.20 in the 2005–2011 plan to 0.30 in the 2023–2029 plan.\nSame unfinished projects. The ring road, Ardaun new town and Ceannt Quarter regeneration appear in all four plans without being delivered.\nLittle new governance. Only one entry across all four plans coded as innovative governance."
-  },
-  {
-    "objectID": "projects/galway-urban-sprawl/index.html#conclusion",
-    "href": "projects/galway-urban-sprawl/index.html#conclusion",
-    "title": "Galway urban sprawl, 1990–2025",
-    "section": "Conclusion",
-    "text": "Conclusion\nGalway’s planning shows layering rather than real transition. Sustainability commitments have grown more ambitious with each plan, but the car-dependent suburban form built in the 1990s is still in place. The 2023–2029 plan, backed by national mandates, gives some grounds for a new path, but the lack of new delivery mechanisms suggests the pattern has not yet broken."
+    "objectID": "projects/rainfall-kriging/index.html#limitations",
+    "href": "projects/rainfall-kriging/index.html#limitations",
+    "title": "Rainfall interpolation by kriging",
+    "section": "Limitations",
+    "text": "Limitations\n\nThe grid covers the Republic of Ireland only, because the outline comes from CSO Small Areas.\nOnly 23 of the 438 gauges are above 300 m, and the highest is at 701 m. Rainfall on the highest mountains is extrapolated from the elevation trend rather than measured, so the mountain peaks are the least certain part of the map.\nRainfall is not normally distributed. Log-normal kriging would suit it better but makes back-transforming the predictions much harder."
   },
   {
     "objectID": "projects/boston-commuter-flows/index.html",
@@ -217,95 +168,109 @@
     "text": "Limitations\n\nDistances are straight-line. Real trips by road or transit are longer.\nLODES home locations are partly synthetic to protect privacy, so results are reported at tract and town level, and the map only draws tract pairs with 3 or more workers.\nThe metro’s two New Hampshire counties are not in the Massachusetts file, so they are left out."
   },
   {
-    "objectID": "projects/rainfall-kriging/index.html",
-    "href": "projects/rainfall-kriging/index.html",
-    "title": "Rainfall interpolation by kriging",
+    "objectID": "projects/galway-urban-sprawl/index.html",
+    "href": "projects/galway-urban-sprawl/index.html",
+    "title": "Galway urban sprawl, 1990–2025",
     "section": "",
-    "text": "QuestionHow can scattered rain gauge readings be turned into a reliable rainfall map, and where is that map least certain?\n  ToolsR\n  DataEDIT: rainfall station dataset and study area\n  ContextGIS module assignment, University of Galway"
+    "text": "QuestionHow far and in which direction has Galway grown since 1990, and has planning policy changed that path?\n  ToolsQGIS, R\n  DataCORINE Land Cover (1990, 2000, 2006, 2012, 2018); four Galway City Development Plans (2005–2029)\n  Study area9 km buffer centred on Eyre Square\n  CRSIrish Transverse Mercator (EPSG:2157)\n  ContextBSc dissertation, University of Galway. Graded 78%."
   },
   {
-    "objectID": "projects/rainfall-kriging/index.html#problem",
-    "href": "projects/rainfall-kriging/index.html#problem",
-    "title": "Rainfall interpolation by kriging",
+    "objectID": "projects/galway-urban-sprawl/index.html#problem",
+    "href": "projects/galway-urban-sprawl/index.html#problem",
+    "title": "Galway urban sprawl, 1990–2025",
     "section": "Problem",
-    "text": "Problem\nRainfall is measured at a limited number of stations, but planning and environmental work need values everywhere. Kriging predicts values between stations and, unlike simpler methods, also gives an error estimate for each location."
+    "text": "Problem\nGalway City nearly doubled its urban footprint during the Celtic Tiger years. Each City Development Plan since has promised compact growth, brownfield regeneration and a shift away from car dependency. This project tests whether the city has actually changed course, or whether new sustainability language has been layered on top of the suburban pattern set in the 1990s."
   },
   {
-    "objectID": "projects/rainfall-kriging/index.html#data",
-    "href": "projects/rainfall-kriging/index.html#data",
-    "title": "Rainfall interpolation by kriging",
+    "objectID": "projects/galway-urban-sprawl/index.html#data",
+    "href": "projects/galway-urban-sprawl/index.html#data",
+    "title": "Galway urban sprawl, 1990–2025",
     "section": "Data",
-    "text": "Data\n\nAdd: the station dataset, number of stations, time period and study area."
+    "text": "Data\n\nCORINE Land Cover rasters at five time points, reclassified to urban and non-urban land\nFour consecutive Galway City Development Plans, 2005–2011 to 2023–2029"
   },
   {
-    "objectID": "projects/rainfall-kriging/index.html#method",
-    "href": "projects/rainfall-kriging/index.html#method",
-    "title": "Rainfall interpolation by kriging",
+    "objectID": "projects/galway-urban-sprawl/index.html#method",
+    "href": "projects/galway-urban-sprawl/index.html#method",
+    "title": "Galway urban sprawl, 1990–2025",
     "section": "Method",
-    "text": "Method\n\nExplored the station data and checked for trend and outliers\nFitted an empirical variogram and a variogram model to describe how rainfall similarity changes with distance\nRan ordinary kriging over a prediction grid\nMapped both the predicted rainfall surface and the kriging variance\nChecked accuracy with cross-validation"
+    "text": "Method\n\nClipped each CORINE year to a 9 km buffer around Eyre Square and processed it in QGIS\nMeasured four things for each year: total urban land, density across concentric rings, fragmentation (patch count and Largest Patch Index) and the area-weighted centroid of urban land\nCoded each development plan against ten codes, five path dependency indicators and five transition signals, in two passes for consistency\nCompared what the plans promised with what the land cover record shows"
   },
   {
-    "objectID": "projects/rainfall-kriging/index.html#result",
-    "href": "projects/rainfall-kriging/index.html#result",
-    "title": "Rainfall interpolation by kriging",
+    "objectID": "projects/galway-urban-sprawl/index.html#result",
+    "href": "projects/galway-urban-sprawl/index.html#result",
+    "title": "Galway urban sprawl, 1990–2025",
     "section": "Result",
-    "text": "Result\n\n\n\nPredicted rainfall surface (left) and kriging variance (right).\n\n\n\nAdd: the prediction and variance maps, the fitted variogram plot, and the cross-validation error (e.g. RMSE). If your LISA analysis has the stronger visual, swap this project for that one."
+    "text": "Result\n\n\n\nUrban extent by CORINE year. Growth spread west towards Knocknacarra, east along the N6 corridor and out to Oranmore.\n\n\n\n88% growth. The urban footprint grew by 88% between 1990 and 2018, and virtually all of it happened before 2006.\nFragmented growth. Fragmentation peaked in 2006 at 32 separate urban patches, with the largest single patch only 29.5% of urban land.\nNo reversal. After the 2008 crash, growth stopped, but the dispersed pattern it left behind did not reverse.\n\n\n\n\n1990 urban land compared with 2018. Most new land sits on the edges of the city and outside the city boundary.\n\n\n\n\n\nMovement of the area-weighted centre of urban land between CORINE years.\n\n\n\nThe centre of growth moved. It shifted 885 m west during the 1990s as suburbs spread towards Knocknacarra. It then swung 1,063 m east by 2006 and 501 m back west by 2012, where it stayed."
   },
   {
-    "objectID": "projects/rainfall-kriging/index.html#code",
-    "href": "projects/rainfall-kriging/index.html#code",
-    "title": "Rainfall interpolation by kriging",
-    "section": "Code",
-    "text": "Code\n\nAdd: link to the GitHub repo with the R script."
+    "objectID": "projects/galway-urban-sprawl/index.html#policy-findings",
+    "href": "projects/galway-urban-sprawl/index.html#policy-findings",
+    "title": "Galway urban sprawl, 1990–2025",
+    "section": "Policy findings",
+    "text": "Policy findings\n\n45 coded entries across the four plans: 17 path dependency indicators and 28 transition signals.\nMore sustainability language. The ratio of path dependency to transition signals fell from 1.20 in the 2005–2011 plan to 0.30 in the 2023–2029 plan.\nSame unfinished projects. The ring road, Ardaun new town and Ceannt Quarter regeneration appear in all four plans without being delivered.\nLittle new governance. Only one entry across all four plans coded as innovative governance."
   },
   {
-    "objectID": "projects/ev-charger-access/index.html",
-    "href": "projects/ev-charger-access/index.html",
-    "title": "EV charger access, Galway City",
+    "objectID": "projects/galway-urban-sprawl/index.html#conclusion",
+    "href": "projects/galway-urban-sprawl/index.html#conclusion",
+    "title": "Galway urban sprawl, 1990–2025",
+    "section": "Conclusion",
+    "text": "Conclusion\nGalway’s planning shows layering rather than real transition. Sustainability commitments have grown more ambitious with each plan, but the car-dependent suburban form built in the 1990s is still in place. The 2023–2029 plan, backed by national mandates, gives some grounds for a new path, but the lack of new delivery mechanisms suggests the pattern has not yet broken."
+  },
+  {
+    "objectID": "projects/nautical-lights/index.html",
+    "href": "projects/nautical-lights/index.html",
+    "title": "Nautical lights of Ireland",
     "section": "",
-    "text": "QuestionHow far, by road, does each Galway City resident live from an EV charger?\n  ToolsQGIS (QuickOSM, QNEAT3), PyQGIS\n  Data28 EV chargers from OpenStreetMap; 309 CSO Census 2022 Small Areas with population; OpenStreetMap road network\n  CRSIrish Transverse Mercator (EPSG:2157)"
+    "text": "QuestionCan open data reproduce what a sailor sees at night: every light on the Irish coast, flashing on its real cycle?\n  ToolsPython (requests, NumPy, Pillow), HTML canvas and JavaScript\n  DataOpenSeaMap light tags from OpenStreetMap (Overpass API); Terrarium elevation tiles (AWS Terrain Tiles)\n  ProjectionWeb Mercator"
   },
   {
-    "objectID": "projects/ev-charger-access/index.html#problem",
-    "href": "projects/ev-charger-access/index.html#problem",
-    "title": "EV charger access, Galway City",
+    "objectID": "projects/nautical-lights/index.html#live-map",
+    "href": "projects/nautical-lights/index.html#live-map",
+    "title": "Nautical lights of Ireland",
+    "section": "Live map",
+    "text": "Live map\nHover over a light to see its name, character and range. Every light flashes on its real charted cycle.\n\n  \n\nOpen the map full screen"
+  },
+  {
+    "objectID": "projects/nautical-lights/index.html#problem",
+    "href": "projects/nautical-lights/index.html#problem",
+    "title": "Nautical lights of Ireland",
     "section": "Problem",
-    "text": "Problem\nIreland’s EV targets depend on people being able to charge, but straight-line distance hides how far people actually have to drive. This project measures road distance from every Census Small Area in Galway City to its nearest charger, then weights the result by population to show how many residents are poorly served."
+    "text": "Problem\nEvery lighthouse, beacon and buoy light has a published character, such as Fl(2) W 10s, that tells sailors how it flashes. Lighthouse maps usually show these lights as static dots. This project turns the characters back into motion, so the map shows the coast the way it looks from the sea at night."
   },
   {
-    "objectID": "projects/ev-charger-access/index.html#data",
-    "href": "projects/ev-charger-access/index.html#data",
-    "title": "EV charger access, Galway City",
+    "objectID": "projects/nautical-lights/index.html#data",
+    "href": "projects/nautical-lights/index.html#data",
+    "title": "Nautical lights of Ireland",
     "section": "Data",
-    "text": "Data\n\n28 EV charger locations from OpenStreetMap, downloaded with QuickOSM\n309 CSO Census 2022 Small Area boundaries, joined to Small Area Population Statistics\nOpenStreetMap road network for Galway City"
+    "text": "Data\n\nEvery charted light around Ireland with seamark:light tags in OpenStreetMap, fetched through the Overpass API\nTerrarium elevation tiles for the hillshade and for blocking beams with terrain"
   },
   {
-    "objectID": "projects/ev-charger-access/index.html#method",
-    "href": "projects/ev-charger-access/index.html#method",
-    "title": "EV charger access, Galway City",
+    "objectID": "projects/nautical-lights/index.html#method",
+    "href": "projects/nautical-lights/index.html#method",
+    "title": "Nautical lights of Ireland",
     "section": "Method",
-    "text": "Method\n\nReprojected every layer to Irish Transverse Mercator so all distances are in metres\nCreated a centroid for each Small Area\nMeasured straight-line distance to the nearest charger (Distance to Nearest Hub)\nMeasured road-network distance with a QNEAT3 origin–destination matrix, keeping the shortest route for each Small Area\nJoined Census population to turn distances into numbers of residents\nBuilt the A4 layout with a PyQGIS script, so the headline figures are calculated from the data rather than typed in"
+    "text": "Method\n\nClipped the lights with a polygon to drop Scottish and Welsh lights inside the bounding box\nMerged lights within 300 m of each other, keeping the one with the longest range, so harbour clusters don’t blur into one blob\nParsed each light’s character (Fl, Oc, Iso, Q, LFl, Mo and combinations such as VQ(6)+LFl) into an on/off timeline, using the exact sequence tag where it exists\nBuilt a dark hillshade from the elevation tiles with NumPy\nGave rotating beams to lights with a range of 12 nautical miles or more, and ray-cast each beam against the terrain degree by degree, so headlands cut them off\nDrew everything on an HTML canvas with additive blending, so overlapping glows merge along the coast\nAdded a built-in video recorder, which exports a 4:5 clip sized for Instagram"
   },
   {
-    "objectID": "projects/ev-charger-access/index.html#result",
-    "href": "projects/ev-charger-access/index.html#result",
-    "title": "EV charger access, Galway City",
+    "objectID": "projects/nautical-lights/index.html#result",
+    "href": "projects/nautical-lights/index.html#result",
+    "title": "Nautical lights of Ireland",
     "section": "Result",
-    "text": "Result\n\n\n\nRoad distance to the nearest EV charger by Census Small Area, with the 10 furthest and 10 nearest areas outlined. Inset: the same classes using straight-line distance.\n\n\n\n66% of residents (about 55,600 people) live more than 1 km by road from a charger.\n28% (23,960 people) live more than 2 km away, and 5% (4,199 people) more than 3 km.\n1.5 km is the average resident’s distance to the nearest charger, weighted by population.\nChargers cluster in the city centre, so the outer residential edges of the city are the worst served.\nStraight-line distance understates real trips, most of all where the river or the bay forces a detour."
+    "text": "Result\n\n449 lights on the Irish coast after merging harbour clusters: 184 white, 146 red, 102 green, 16 yellow and 1 blue.\n34 major lights have rotating beams, such as Fastnet Rock, which flashes white every 5 seconds with a range of 28 nautical miles.\nMost of the lights are not lighthouses. They are buoys and harbour beacons, which is why the map is titled nautical lights."
   },
   {
-    "objectID": "projects/ev-charger-access/index.html#limitations",
-    "href": "projects/ev-charger-access/index.html#limitations",
-    "title": "EV charger access, Galway City",
+    "objectID": "projects/nautical-lights/index.html#limitations",
+    "href": "projects/nautical-lights/index.html#limitations",
+    "title": "Nautical lights of Ireland",
     "section": "Limitations",
-    "text": "Limitations\n\nDistances are measured from Small Area centroids, so parts of large Small Areas are closer to a charger than shown.\nOpenStreetMap charger data may be incomplete and can include chargers that aren’t open to the public.\nOne Small Area has no road connection. It is counted in the population total but not in the distance figures."
+    "text": "Limitations\n\nOpenStreetMap is the only openly licensed source of Irish light data, so lights missing from OSM are missing from the map.\nEach light is given a random starting point in its cycle, so the timing between neighbouring lights is not real."
   },
   {
     "objectID": "projects.html",
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "Galway urban sprawl, 1990–2025\n\n\n\nQGIS\n\nR\n\nCORINE\n\nLand cover change\n\nPolicy analysis\n\n\n\nGalway’s urban footprint grew 88% between 1990 and 2018, almost all of it before 2006. Mapped with CORINE land cover and set against four City Development Plans.\n\n\n\n\n\n\n\n\n\n\n\n\nEV charger access, Galway City\n\n\n\nQGIS\n\nNetwork analysis\n\nCensus\n\nInfrastructure\n\nPyQGIS\n\n\n\nRoad distance from every Census Small Area to its nearest EV charger. 66% of Galway City residents live more than 1 km away by road.\n\n\n\n\n\n\n\n\n\n\n\n\nNautical lights of Ireland\n\n\n\nPython\n\nOpenStreetMap\n\nDEM\n\nWeb mapping\n\nData visualisation\n\n\n\nAn animated map of 449 coastal lights around Ireland, each flashing on its real charted cycle, with lighthouse beams cut off by the terrain.\n\n\n\n\n\n\n\n\n\n\n\n\nBoston commuter flows\n\n\n\nPython\n\npandas\n\nCensus\n\nFlow mapping\n\ndeck.gl\n\nWeb mapping\n\n\n\nWhere 1.88 million workers in the Boston metro live and where they work, mapped tract to tract from 2023 US Census commuting data.\n\n\n\n\n\n\n\n\n\n\n\n\nRainfall interpolation by kriging\n\n\n\nR\n\nGeostatistics\n\nKriging\n\n\n\nA continuous rainfall surface built from point station data with ordinary kriging in R, with the variogram and prediction error mapped.\n\n\n\n\n\n\n\n\n\n\n\n\nHeritage StoryMaps, Galway County Council\n\n\n\nArcGIS Online\n\nStoryMaps\n\nStakeholder work\n\n\n\nPublic-facing ArcGIS StoryMaps built for local heritage groups during a council GIS internship, and presented to elected members.\n\n\n\n\n\nNo matching items"
+    "text": "Galway urban sprawl, 1990–2025\n\n\n\nQGIS\n\nR\n\nCORINE\n\nLand cover change\n\nPolicy analysis\n\n\n\nGalway’s urban footprint grew 88% between 1990 and 2018, almost all of it before 2006. Mapped with CORINE land cover and set against four City Development Plans.\n\n\n\n\n\n\n\n\n\n\n\n\nEV charger access, Galway City\n\n\n\nQGIS\n\nNetwork analysis\n\nCensus\n\nInfrastructure\n\nPyQGIS\n\n\n\nRoad distance from every Census Small Area to its nearest EV charger. 66% of Galway City residents live more than 1 km away by road.\n\n\n\n\n\n\n\n\n\n\n\n\nNautical lights of Ireland\n\n\n\nPython\n\nOpenStreetMap\n\nDEM\n\nWeb mapping\n\nData visualisation\n\n\n\nAn animated map of 449 coastal lights around Ireland, each flashing on its real charted cycle, with lighthouse beams cut off by the terrain.\n\n\n\n\n\n\n\n\n\n\n\n\nBoston commuter flows\n\n\n\nPython\n\npandas\n\nCensus\n\nFlow mapping\n\ndeck.gl\n\nWeb mapping\n\n\n\nWhere 1.88 million workers in the Boston metro live and where they work, mapped tract to tract from 2023 US Census commuting data.\n\n\n\n\n\n\n\n\n\n\n\n\nRainfall interpolation by kriging\n\n\n\nR\n\nGeostatistics\n\nKriging\n\nGAM\n\nCross-validation\n\n\n\nA 1 km map of mean annual rainfall across the Republic of Ireland, built from rain gauge readings by comparing four kriging methods in R and averaging them.\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -319,7 +284,7 @@
     "href": "index.html#selected-work",
     "title": "Carlos Grace",
     "section": "Selected work",
-    "text": "Selected work\n\n\n\n\n\n\n\n\n\n\nGalway urban sprawl, 1990–2025\n\n\nGalway’s urban footprint grew 88% between 1990 and 2018, almost all of it before 2006. Mapped with CORINE land cover and set against four City Development Plans.\n\n\n\n\n\n\n\n\n\n\n\n\nEV charger access, Galway City\n\n\nRoad distance from every Census Small Area to its nearest EV charger. 66% of Galway City residents live more than 1 km away by road.\n\n\n\n\n\n\n\n\n\n\n\n\nNautical lights of Ireland\n\n\nAn animated map of 449 coastal lights around Ireland, each flashing on its real charted cycle, with lighthouse beams cut off by the terrain.\n\n\n\n\n\nNo matching items\n\nAll projects"
+    "text": "Selected work\n\n\n\n\n\n\n\n\n\n\nGalway urban sprawl, 1990–2025\n\n\nGalway’s urban footprint grew 88% between 1990 and 2018, almost all of it before 2006. Mapped with CORINE land cover and set against four City Development Plans.\n\n\n\n\n\n\n\n\n\n\n\n\nEV charger access, Galway City\n\n\nRoad distance from every Census Small Area to its nearest EV charger. 66% of Galway City residents live more than 1 km away by road.\n\n\n\n\n\n\n\n\n\n\n\n\nBoston commuter flows\n\n\nWhere 1.88 million workers in the Boston metro live and where they work, mapped tract to tract from 2023 US Census commuting data.\n\n\n\n\n\n\n\n\n\n\n\n\nNautical lights of Ireland\n\n\nAn animated map of 449 coastal lights around Ireland, each flashing on its real charted cycle, with lighthouse beams cut off by the terrain.\n\n\n\n\n\nNo matching items\n\nAll projects"
   },
   {
     "objectID": "index.html#tools",

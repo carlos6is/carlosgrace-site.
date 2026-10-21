@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="A continuous rainfall surface built from point station data with ordinary kriging in R, with the variogram and prediction error mapped.">
+<meta name="description" content="A 1 km map of mean annual rainfall across the Republic of Ireland, built from rain gauge readings by comparing four kriging methods in R and averaging them.">
 
 <title>Rainfall interpolation by kriging – Carlos Grace</title>
 <style>
@@ -76,11 +76,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="Rainfall interpolation by kriging – Carlos Grace">
-<meta property="og:description" content="A continuous rainfall surface built from point station data with ordinary kriging in R, with the variogram and prediction error mapped.">
-<meta property="og:image" content="https://carlosgrace.com/projects/rainfall-kriging/thumbnail.png">
+<meta property="og:description" content="A 1 km map of mean annual rainfall across the Republic of Ireland, built from rain gauge readings by comparing four kriging methods in R and averaging them.">
+<meta property="og:image" content="https://carlosgrace.com/projects/rainfall-kriging/thumbnail.jpg">
 <meta property="og:site_name" content="Carlos Grace">
-<meta property="og:image:height" content="800">
-<meta property="og:image:width" content="1200">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -148,12 +146,14 @@ ul.task-list li input[type="checkbox"] {
     <div class="quarto-category">R</div>
     <div class="quarto-category">Geostatistics</div>
     <div class="quarto-category">Kriging</div>
+    <div class="quarto-category">GAM</div>
+    <div class="quarto-category">Cross-validation</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    A continuous rainfall surface built from point station data with ordinary kriging in R, with the variogram and prediction error mapped.
+    A 1 km map of mean annual rainfall across the Republic of Ireland, built from rain gauge readings by comparing four kriging methods in R and averaging them.
   </div>
 </div>
 
@@ -171,48 +171,60 @@ ul.task-list li input[type="checkbox"] {
 
 
 <dl class="project-facts">
-  <dt>Question</dt><dd>How can scattered rain gauge readings be turned into a reliable rainfall map, and where is that map least certain?</dd>
-  <dt>Tools</dt><dd>R</dd>
-  <dt>Data</dt><dd>EDIT: rainfall station dataset and study area</dd>
-  <dt>Context</dt><dd>GIS module assignment, University of Galway</dd>
+  <dt>Question</dt><dd>How can scattered rain gauge readings be turned into a reliable rainfall map, and which kriging method predicts best?</dd>
+  <dt>Tools</dt><dd>R (sf, gstat, terra, mgcv, elevatr), QGIS</dd>
+  <dt>Data</dt><dd>Mean annual rainfall at 438 rain gauges; CSO 2022 Small Area boundaries; elevation model from elevatr</dd>
+  <dt>CRS</dt><dd>Irish Transverse Mercator (EPSG:2157)</dd>
+  <dt>Context</dt><dd>Advanced GIS module, University of Galway</dd>
 </dl>
 <section id="problem" class="level2">
 <h2 class="anchored" data-anchor-id="problem">Problem</h2>
-<p>Rainfall is measured at a limited number of stations, but planning and environmental work need values everywhere. Kriging predicts values between stations and, unlike simpler methods, also gives an error estimate for each location.</p>
+<p>Rainfall is measured at a limited number of rain gauges, but planning, flood risk and environmental work need values everywhere. Kriging predicts values between stations from how similar nearby readings are, and different versions of it handle trends and terrain differently. This project tests four versions against each other and combines them.</p>
 </section>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
-<div class="todo">
-<p><strong>Add:</strong> the station dataset, number of stations, time period and study area.</p>
-</div>
+<ul>
+<li>Mean annual rainfall at 438 rain gauges, with station height, reprojected to Irish Transverse Mercator</li>
+<li>CSO 2022 Small Area boundaries, merged into a single outline of the Republic of Ireland</li>
+<li>A digital elevation model downloaded with elevatr, used as a predictor</li>
+</ul>
 </section>
 <section id="method" class="level2">
 <h2 class="anchored" data-anchor-id="method">Method</h2>
 <ul>
-<li>Explored the station data and checked for trend and outliers</li>
-<li>Fitted an empirical variogram and a variogram model to describe how rainfall similarity changes with distance</li>
-<li>Ran ordinary kriging over a prediction grid</li>
-<li>Mapped both the predicted rainfall surface and the kriging variance</li>
-<li>Checked accuracy with cross-validation</li>
+<li>Built a 1 km prediction grid over the Republic of Ireland</li>
+<li><strong>Ordinary kriging</strong> with a spherical variogram fitted to the station data</li>
+<li><strong>Universal kriging</strong> with an east–north trend, because rainfall falls steadily towards the east and, to a lesser extent, the north</li>
+<li><strong>Universal kriging with elevation</strong> added to the trend, because rainfall rises with altitude</li>
+<li><strong>Regression kriging:</strong> a generalised additive model (GAM) of easting, northing and elevation, with its residuals kriged and added back</li>
+<li>Tested every model with cross-validation (100-fold, and leave-one-out for regression kriging) and compared the RMSE</li>
+<li>Averaged the four predictions into an ensemble, which had the lowest cross-validation error of all the approaches, and mapped it in QGIS</li>
 </ul>
 </section>
 <section id="result" class="level2">
 <h2 class="anchored" data-anchor-id="result">Result</h2>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><a href="thumbnail.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Predicted rainfall surface (left) and kriging variance (right)."><img src="thumbnail.png" class="img-fluid figure-img" alt="Kriged rainfall surface and variance map"></a></p>
-<figcaption>Predicted rainfall surface (left) and kriging variance (right).</figcaption>
+<p><a href="ensemble-rainfall.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Ensemble prediction of mean annual rainfall at 1 km resolution, with the same gauges interpolated by nearest neighbour and inverse distance weighting for comparison. Click to enlarge."><img src="ensemble-rainfall.jpg" class="img-fluid figure-img" alt="Map layout of predicted mean annual rainfall in the Republic of Ireland, from 668 mm in the east to 3,355 mm in the western mountains, with three small comparison maps"></a></p>
+<figcaption>Ensemble prediction of mean annual rainfall at 1 km resolution, with the same gauges interpolated by nearest neighbour and inverse distance weighting for comparison. Click to enlarge.</figcaption>
 </figure>
 </div>
-<div class="todo">
-<p><strong>Add:</strong> the prediction and variance maps, the fitted variogram plot, and the cross-validation error (e.g.&nbsp;RMSE). If your LISA analysis has the stronger visual, swap this project for that one.</p>
-</div>
+<ul>
+<li><strong>Predicted rainfall ranges from 668 mm to 3,355 mm a year.</strong></li>
+<li><strong>The wettest areas are the mountains of west Mayo and Kerry</strong>, with a smaller peak over the Wicklow Mountains.</li>
+<li><strong>The east and midlands are driest</strong>, matching the east–west trend the universal kriging picked up.</li>
+<li><strong>Elevation explains most of the local detail.</strong> Once east, north and elevation were in the model, the trend accounted for most of the variation, and kriging the residuals added fine-scale correction.</li>
+<li><strong>Averaging beat every single model.</strong> The ensemble of all four had the lowest cross-validation error.</li>
+<li><strong>Kriging with elevation follows the terrain.</strong> Nearest neighbour and inverse distance weighting only spread each gauge’s value outwards, so they miss rain on high ground between gauges.</li>
+</ul>
 </section>
-<section id="code" class="level2">
-<h2 class="anchored" data-anchor-id="code">Code</h2>
-<div class="todo">
-<p><strong>Add:</strong> link to the GitHub repo with the R script.</p>
-</div>
+<section id="limitations" class="level2">
+<h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
+<ul>
+<li>The grid covers the Republic of Ireland only, because the outline comes from CSO Small Areas.</li>
+<li>Only 23 of the 438 gauges are above 300 m, and the highest is at 701 m. Rainfall on the highest mountains is extrapolated from the elevation trend rather than measured, so the mountain peaks are the least certain part of the map.</li>
+<li>Rainfall is not normally distributed. Log-normal kriging would suit it better but makes back-transforming the predictions much harder.</li>
+</ul>
 
 
 </section>

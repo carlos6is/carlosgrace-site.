@@ -1,6 +1,6 @@
 ---
 title: "Projects"
-description: "Spatial analysis and mapping work. Each page sets out the question, data, method, result and code."
+description: "Spatial analysis and mapping work. Each page sets out the question, data, method and result."
 listing:
   contents:
     - projects/galway-urban-sprawl/index.qmd
@@ -8,10 +8,9 @@ listing:
     - projects/nautical-lights/index.qmd
     - projects/boston-commuter-flows/index.qmd
     - projects/rainfall-kriging/index.qmd
-    - projects/council-storymaps/index.qmd
   sort: false
   type: grid
   grid-columns: 2
-  image-height: 280px
+  image-height: 258px
   fields: [image, title, description, categories]
 ---

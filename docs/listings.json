@@ -6,8 +6,7 @@
       "/projects/ev-charger-access/index.html",
       "/projects/nautical-lights/index.html",
       "/projects/boston-commuter-flows/index.html",
-      "/projects/rainfall-kriging/index.html",
-      "/projects/council-storymaps/index.html"
+      "/projects/rainfall-kriging/index.html"
     ]
   },
   {
@@ -15,6 +14,7 @@
     "items": [
       "/projects/galway-urban-sprawl/index.html",
       "/projects/ev-charger-access/index.html",
+      "/projects/boston-commuter-flows/index.html",
       "/projects/nautical-lights/index.html"
     ]
   }
