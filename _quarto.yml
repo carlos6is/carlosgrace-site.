@@ -32,6 +32,7 @@ website:
 
 format:
   html:
+    include-in-header: analytics.html   # Cloudflare Web Analytics
     theme: [cosmo, styles.scss]
     toc: false
     code-fold: true
