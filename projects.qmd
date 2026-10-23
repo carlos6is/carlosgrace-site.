@@ -3,6 +3,7 @@ title: "Projects"
 description: "Spatial analysis and mapping work. Each page sets out the question, data, method and result."
 listing:
   contents:
+    - projects/dublin-spatial-search/index.qmd
     - projects/galway-urban-sprawl/index.qmd
     - projects/ev-charger-access/index.qmd
     - projects/nautical-lights/index.qmd

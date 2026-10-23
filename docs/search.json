@@ -168,6 +168,55 @@
     "text": "Limitations\n\nDistances are straight-line. Real trips by road or transit are longer.\nLODES home locations are partly synthetic to protect privacy, so results are reported at tract and town level, and the map only draws tract pairs with 3 or more workers.\nThe metro’s two New Hampshire counties are not in the Massachusetts file, so they are left out."
   },
   {
+    "objectID": "projects/dublin-spatial-search/index.html",
+    "href": "projects/dublin-spatial-search/index.html",
+    "title": "Dublin Spatial Search",
+    "section": "",
+    "text": "QuestionWhat's inside any part of Dublin, across three agencies' data, in one search?\n  ToolsPython (Flask, psycopg), PostgreSQL + PostGIS, SQL, JavaScript (Leaflet), Docker\n  DataEPA licensed facilities; OPW hydrometric stations; National Planning Application Database (all CC BY 4.0)\n  CRSWGS 84 (EPSG:4326) for storage; Irish Transverse Mercator (EPSG:2157) for distances"
+  },
+  {
+    "objectID": "projects/dublin-spatial-search/index.html#live-app",
+    "href": "projects/dublin-spatial-search/index.html#live-app",
+    "title": "Dublin Spatial Search",
+    "section": "Live app",
+    "text": "Live app\nDraw a box or polygon on the map, or search an address and pick a radius. Click any result for its details, or export the search as GeoJSON.\n\n  Open the app\n  Code on GitHub\n\nIt runs on free hosting, so the first search can take up to a minute while the server wakes up.\n\n\n\nA 500 m search around Grand Canal Dock: 424 planning applications and one EPA licensed facility, listed nearest first."
+  },
+  {
+    "objectID": "projects/dublin-spatial-search/index.html#problem",
+    "href": "projects/dublin-spatial-search/index.html#problem",
+    "title": "Dublin Spatial Search",
+    "section": "Problem",
+    "text": "Problem\nEnvironmental and planning data for Dublin is spread across separate viewers. The EPA, the OPW and each of the four councils publish their own. Checking what’s around one site, for example when screening a development for an environmental assessment, means visiting each viewer in turn and combining the results by hand."
+  },
+  {
+    "objectID": "projects/dublin-spatial-search/index.html#data",
+    "href": "projects/dublin-spatial-search/index.html#data",
+    "title": "Dublin Spatial Search",
+    "section": "Data",
+    "text": "Data\n\n216 EPA licensed facilities (industrial emissions, IPC and waste licences) from the EPA’s GeoServer web feature service\n8 OPW water level stations with their latest reading, from waterlevel.ie\n117,464 planning applications from Dublin City, Fingal, South Dublin and Dún Laoghaire-Rathdown councils, from the National Planning Application Database’s ArcGIS REST service"
+  },
+  {
+    "objectID": "projects/dublin-spatial-search/index.html#method",
+    "href": "projects/dublin-spatial-search/index.html#method",
+    "title": "Dublin Spatial Search",
+    "section": "Method",
+    "text": "Method\n\nWrote a Python loader that downloads each source, keeps the Dublin records and drops bad coordinates. Planning applications are paged from ArcGIS 2,000 at a time, and applicant names are never downloaded\nLoaded all three layers into one PostGIS table, with a GIST spatial index on the geometry and trigram indexes for searching names and planning references\nBuilt a Flask API that sends the drawn shape to PostGIS and finds features with ST_Intersects\nBuffered radius searches in Irish Transverse Mercator, so the radius and the distances are in true metres\nHad PostGIS build the GeoJSON response itself (json_agg), so the API passes it straight to the map\nReloaded each layer inside one database transaction, so the live app never shows a half-loaded layer\nBuilt the front end in Leaflet, with drawing tools, an address search (OpenStreetMap Nominatim), layer and date filters, GeoJSON export and a live ITM coordinate readout\nDeployed the database on Neon and the app on Render, both from Docker"
+  },
+  {
+    "objectID": "projects/dublin-spatial-search/index.html#result",
+    "href": "projects/dublin-spatial-search/index.html#result",
+    "title": "Dublin Spatial Search",
+    "section": "Result",
+    "text": "Result\n\n117,688 features are searchable in one query: 117,464 planning applications, 216 licensed facilities and 8 river gauges.\nA 500 m search around Grand Canal Dock returns 425 features in 0.7 seconds: 424 planning applications and one licensed facility, 257 m away.\nAny search exports as GeoJSON with source and licence details, ready to open in QGIS.\nUse cases include environmental assessment site screening, the planning history of a site, and checking a street before buying a house."
+  },
+  {
+    "objectID": "projects/dublin-spatial-search/index.html#limitations",
+    "href": "projects/dublin-spatial-search/index.html#limitations",
+    "title": "Dublin Spatial Search",
+    "section": "Limitations",
+    "text": "Limitations\n\nPlanning records reach the national database from each council’s own system, so they can lag behind the councils’ planning portals.\nEPA and OPW data is clipped to a box around County Dublin, so it includes a few stations just over the Kildare border.\nFacilities and planning applications are stored as points, not site boundaries.\nThe free hosting sleeps when idle, so the first search after a quiet spell is slow."
+  },
+  {
     "objectID": "projects/galway-urban-sprawl/index.html",
     "href": "projects/galway-urban-sprawl/index.html",
     "title": "Galway urban sprawl, 1990–2025",
@@ -270,7 +319,7 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "Galway urban sprawl, 1990–2025\n\n\n\nQGIS\n\nR\n\nCORINE\n\nLand cover change\n\nPolicy analysis\n\n\n\nGalway’s urban footprint grew 88% between 1990 and 2018, almost all of it before 2006. Mapped with CORINE land cover and set against four City Development Plans.\n\n\n\n\n\n\n\n\n\n\n\n\nEV charger access, Galway City\n\n\n\nQGIS\n\nNetwork analysis\n\nCensus\n\nInfrastructure\n\nPyQGIS\n\n\n\nRoad distance from every Census Small Area to its nearest EV charger. 66% of Galway City residents live more than 1 km away by road.\n\n\n\n\n\n\n\n\n\n\n\n\nNautical lights of Ireland\n\n\n\nPython\n\nOpenStreetMap\n\nDEM\n\nWeb mapping\n\nData visualisation\n\n\n\nAn animated map of 449 coastal lights around Ireland, each flashing on its real charted cycle, with lighthouse beams cut off by the terrain.\n\n\n\n\n\n\n\n\n\n\n\n\nBoston commuter flows\n\n\n\nPython\n\npandas\n\nCensus\n\nFlow mapping\n\ndeck.gl\n\nWeb mapping\n\n\n\nWhere 1.88 million workers in the Boston metro live and where they work, mapped tract to tract from 2023 US Census commuting data.\n\n\n\n\n\n\n\n\n\n\n\n\nRainfall interpolation by kriging\n\n\n\nR\n\nGeostatistics\n\nKriging\n\nGAM\n\nCross-validation\n\n\n\nA 1 km map of mean annual rainfall across the Republic of Ireland, built from rain gauge readings by comparing four kriging methods in R and averaging them.\n\n\n\n\n\nNo matching items"
+    "text": "Dublin Spatial Search\n\n\n\nPython\n\nFlask\n\nPostGIS\n\nSQL\n\nLeaflet\n\nWeb GIS\n\n\n\nA web app that searches EPA licensed facilities, OPW river gauges and 117,464 planning applications inside any area of Dublin you draw.\n\n\n\n\n\n\n\n\n\n\n\n\nGalway urban sprawl, 1990–2025\n\n\n\nQGIS\n\nR\n\nCORINE\n\nLand cover change\n\nPolicy analysis\n\n\n\nGalway’s urban footprint grew 88% between 1990 and 2018, almost all of it before 2006. Mapped with CORINE land cover and set against four City Development Plans.\n\n\n\n\n\n\n\n\n\n\n\n\nEV charger access, Galway City\n\n\n\nQGIS\n\nNetwork analysis\n\nCensus\n\nInfrastructure\n\nPyQGIS\n\n\n\nRoad distance from every Census Small Area to its nearest EV charger. 66% of Galway City residents live more than 1 km away by road.\n\n\n\n\n\n\n\n\n\n\n\n\nNautical lights of Ireland\n\n\n\nPython\n\nOpenStreetMap\n\nDEM\n\nWeb mapping\n\nData visualisation\n\n\n\nAn animated map of 449 coastal lights around Ireland, each flashing on its real charted cycle, with lighthouse beams cut off by the terrain.\n\n\n\n\n\n\n\n\n\n\n\n\nBoston commuter flows\n\n\n\nPython\n\npandas\n\nCensus\n\nFlow mapping\n\ndeck.gl\n\nWeb mapping\n\n\n\nWhere 1.88 million workers in the Boston metro live and where they work, mapped tract to tract from 2023 US Census commuting data.\n\n\n\n\n\n\n\n\n\n\n\n\nRainfall interpolation by kriging\n\n\n\nR\n\nGeostatistics\n\nKriging\n\nGAM\n\nCross-validation\n\n\n\nA 1 km map of mean annual rainfall across the Republic of Ireland, built from rain gauge readings by comparing four kriging methods in R and averaging them.\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -284,7 +333,7 @@
     "href": "index.html#selected-work",
     "title": "Carlos Grace",
     "section": "Selected work",
-    "text": "Selected work\n\n\n\n\n\n\n\n\n\n\nGalway urban sprawl, 1990–2025\n\n\nGalway’s urban footprint grew 88% between 1990 and 2018, almost all of it before 2006. Mapped with CORINE land cover and set against four City Development Plans.\n\n\n\n\n\n\n\n\n\n\n\n\nEV charger access, Galway City\n\n\nRoad distance from every Census Small Area to its nearest EV charger. 66% of Galway City residents live more than 1 km away by road.\n\n\n\n\n\n\n\n\n\n\n\n\nBoston commuter flows\n\n\nWhere 1.88 million workers in the Boston metro live and where they work, mapped tract to tract from 2023 US Census commuting data.\n\n\n\n\n\n\n\n\n\n\n\n\nNautical lights of Ireland\n\n\nAn animated map of 449 coastal lights around Ireland, each flashing on its real charted cycle, with lighthouse beams cut off by the terrain.\n\n\n\n\n\nNo matching items\n\nAll projects"
+    "text": "Selected work\n\n\n\n\n\n\n\n\n\n\nDublin Spatial Search\n\n\nA web app that searches EPA licensed facilities, OPW river gauges and 117,464 planning applications inside any area of Dublin you draw.\n\n\n\n\n\n\n\n\n\n\n\n\nGalway urban sprawl, 1990–2025\n\n\nGalway’s urban footprint grew 88% between 1990 and 2018, almost all of it before 2006. Mapped with CORINE land cover and set against four City Development Plans.\n\n\n\n\n\n\n\n\n\n\n\n\nEV charger access, Galway City\n\n\nRoad distance from every Census Small Area to its nearest EV charger. 66% of Galway City residents live more than 1 km away by road.\n\n\n\n\n\n\n\n\n\n\n\n\nBoston commuter flows\n\n\nWhere 1.88 million workers in the Boston metro live and where they work, mapped tract to tract from 2023 US Census commuting data.\n\n\n\n\n\nNo matching items\n\nAll projects"
   },
   {
     "objectID": "index.html#tools",

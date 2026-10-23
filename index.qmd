@@ -6,10 +6,10 @@ title-block-banner: false
 listing:
   id: selected-work
   contents:
+    - projects/dublin-spatial-search/index.qmd
     - projects/galway-urban-sprawl/index.qmd
     - projects/ev-charger-access/index.qmd
     - projects/boston-commuter-flows/index.qmd
-    - projects/nautical-lights/index.qmd
   sort: false
   type: grid
   grid-columns: 2

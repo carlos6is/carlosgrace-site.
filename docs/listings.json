@@ -2,6 +2,7 @@
   {
     "listing": "/projects.html",
     "items": [
+      "/projects/dublin-spatial-search/index.html",
       "/projects/galway-urban-sprawl/index.html",
       "/projects/ev-charger-access/index.html",
       "/projects/nautical-lights/index.html",
@@ -12,10 +13,10 @@
   {
     "listing": "/index.html",
     "items": [
+      "/projects/dublin-spatial-search/index.html",
       "/projects/galway-urban-sprawl/index.html",
       "/projects/ev-charger-access/index.html",
-      "/projects/boston-commuter-flows/index.html",
-      "/projects/nautical-lights/index.html"
+      "/projects/boston-commuter-flows/index.html"
     ]
   }
 ]
