@@ -179,7 +179,7 @@
     "href": "projects/dublin-spatial-search/index.html#live-app",
     "title": "Dublin Spatial Search",
     "section": "Live app",
-    "text": "Live app\nDraw a box or polygon on the map, or search an address and pick a radius. Click any result for its details, or export the search as GeoJSON.\n\n  Open the app\n  Code on GitHub\n\nIt runs on free hosting, so the first search can take up to a minute while the server wakes up.\n\n\n\nA 500 m search around Grand Canal Dock: 424 planning applications and one EPA licensed facility, listed nearest first."
+    "text": "Live app\nDraw a box or polygon on the map, or search an address and pick a radius. Click any result for its details, or export the search as GeoJSON.\n\n  Open the app\n  It runs on free hosting, so the first search can take up to a minute while the server wakes up.\n\n\n\nA 500 m search around Grand Canal Dock: 424 planning applications and one EPA licensed facility, listed nearest first."
   },
   {
     "objectID": "projects/dublin-spatial-search/index.html#problem",
